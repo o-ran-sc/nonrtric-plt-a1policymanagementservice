@@ -1,0 +1,32 @@
+.. This work is licensed under a Creative Commons Attribution 4.0 International License.
+.. SPDX-License-Identifier: CC-BY-4.0
+.. Copyright (C) 2021 Nordix
+
+A1 Policy Management Service (from ONAP CCSDK)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A1 Controller Service above A1 Controller/Adaptor that provides:
+
+* Unified REST & DMaaP NBI APIs for managing A1 Policies in all near-RT-RICs.
+
+  + Query A1 Policy Types in near-RT-RICs.
+  + Create/Query/Update/Delete A1 Policy Instances in near-RT-RICs.
+  + Query Status for A1 Policy Instances.
+
+* Maintains (persistent) cache of RAN's A1 Policy information.
+
+  * Support RAN-wide view of A1 Policy information.
+  * Streamline A1 traffic.
+  * Enable (optional) re-synchronization after inconsistencies / near-RT-RIC restarts.
+  * Supports a large number of near-RT-RICs (& multi-version support).
+
+* Converged ONAP & O-RAN-SC A1 Adapter/Controller functions in ONAP SDNC/CCSDK (Optionally deploy without A1 Adaptor to connect direct to near-RT-RICs).
+* Support for different Southbound connectors per near-RT-RIC - e.g. different A1 versions, different near-RT-RIC version, different A1 adapter/controllers supports different or proprietary A1 controllers/EMSs.
+
+See also: `A1 Policy Management Service in ONAP <https://wiki.onap.org/pages/viewpage.action?pageId=84672221>`_ .
+
+Implementation:
+
+* Implemented as a Java Spring Boot application.
+
+
