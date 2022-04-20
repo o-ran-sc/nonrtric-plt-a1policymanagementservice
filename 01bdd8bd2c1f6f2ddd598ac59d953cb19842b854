@@ -22,6 +22,30 @@
       },
       "revId": "01bdd8bd2c1f6f2ddd598ac59d953cb19842b854",
       "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6073dc7_c40c7774",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000201
+      },
+      "writtenOn": "2022-04-20T06:18:47Z",
+      "side": 1,
+      "message": "The approved path for pushing to the snapshots repo, is \norg/o-ran-sc/nonrtric-plt-sdnca1controller, the same as the repo name. This commit in patch set 4 changes to this path.\nWe can also ask for a new approved path. If we go for a new path, I suggest it should be org/o-ran-sc/nonrtric/plt/sdnca1controller.",
+      "parentUuid": "0541c225_b82caa3a",
+      "range": {
+        "startLine": 32,
+        "startChar": 39,
+        "endLine": 32,
+        "endChar": 64
+      },
+      "revId": "01bdd8bd2c1f6f2ddd598ac59d953cb19842b854",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
     }
   ]
 }
