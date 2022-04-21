@@ -1,0 +1,9 @@
+Verified+1: ORAN Jobbuilder <releng+oran-jobbuilder@linuxfoundation.org>
+Code-Review+1: Sonia Sangari <sonia.sangari@est.tech>
+Code-Review+1: Kevin Timoney <kevin.timoney@est.tech>
+Code-Review+2: John  Keeney <john.keeney@est.tech>
+Submitted-by: Henrik Andersson <henrik.b.andersson@est.tech>
+Submitted-at: Thu, 21 Apr 2022 06:19:40 +0000
+Reviewed-on: https://gerrit.o-ran-sc.org/r/c/nonrtric/plt/a1policymanagementservice/+/8060
+Project: nonrtric/plt/a1policymanagementservice
+Branch: refs/heads/master
