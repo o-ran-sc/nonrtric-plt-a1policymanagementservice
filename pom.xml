@@ -114,13 +114,7 @@
         <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.immutables</groupId>
-            <artifactId>value</artifactId>
-            <version>${immutable.version}</version>
-            <scope>provided</scope>
-        </dependency>
+        </dependency>      
         <dependency>
             <groupId>org.immutables</groupId>
             <artifactId>gson</artifactId>
