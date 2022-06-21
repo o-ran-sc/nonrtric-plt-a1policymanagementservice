@@ -1,0 +1,9 @@
+Verified+1: ORAN Jobbuilder <releng+oran-jobbuilder@linuxfoundation.org>
+Code-Review+1: Bj�rn Magnusson <bjorn.magnusson@est.tech>
+Code-Review+1: Kevin Timoney <kevin.timoney@est.tech>
+Code-Review+2: Patrik Buhr <patrik.buhr@est.tech>
+Submitted-by: Patrik Buhr <patrik.buhr@est.tech>
+Submitted-at: Tue, 21 Jun 2022 14:43:48 +0000
+Reviewed-on: https://gerrit.o-ran-sc.org/r/c/nonrtric/plt/a1policymanagementservice/+/8602
+Project: nonrtric/plt/a1policymanagementservice
+Branch: refs/heads/master
