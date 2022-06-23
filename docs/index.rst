@@ -13,5 +13,3 @@ Non-RT RIC A1 Policy Managent Service
    ./developer-guide.rst
    ./installation-guide.rst
    ./release-notes.rst
-
-* :ref:`search`

@@ -29,4 +29,4 @@ Implementation:
 
 * Implemented as a Java Spring Boot application.
 
-
+This product is a part of :doc:`NONRTRIC <nonrtric:index>`.
