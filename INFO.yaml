@@ -33,11 +33,6 @@ repositories:
     - 'nonrtric/plt/a1policymanagementservice'
 committers:
     - <<: *oran_nonrtric_ptl
-    - name: 'Henrik Andersson'
-      email: 'henrik.b.andersson@est.tech'
-      company: 'Ericsson Software Technology'
-      id: 'elinuxhenrik'
-      timezone: 'Sweden/Stockholm'
     - name: 'Patrik Buhr'
       email: 'patrik.buhr@est.tech'
       company: 'Ericsson Software Technology'
