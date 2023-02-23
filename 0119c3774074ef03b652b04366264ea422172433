@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac12af46_a8a6b57f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000262
+      },
+      "writtenOn": "2023-02-23T08:05:16Z",
+      "side": 1,
+      "message": "FYI, I have this commit that migrates ICS to springboot 3 and Java 17. \n\nhttps://gerrit.o-ran-sc.org/r/c/nonrtric/plt/informationcoordinatorservice/+/10374",
+      "revId": "0119c3774074ef03b652b04366264ea422172433",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ff9d843_d9f9521d",
@@ -14,6 +31,30 @@
       "writtenOn": "2023-02-22T17:08:05Z",
       "side": 1,
       "message": "I noticed there is no JRE version of rel 17.\nthe jdk is 200MB bigger than jre so suggest to switch to jre when it becomes available.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 24
+      },
+      "revId": "0119c3774074ef03b652b04366264ea422172433",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5826eb92_e30f3b42",
+        "filename": "Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000262
+      },
+      "writtenOn": "2023-02-23T08:05:16Z",
+      "side": 1,
+      "message": "I found this: eclipse-temurin:17.0.3_7-jre-focal, which is 90 MB. \n\nhttps://hub.docker.com/layers/library/eclipse-temurin/17.0.3_7-jre-focal/images/sha256-fce37e5146419a158c2199c6089fa39b92445fb2e66dc0331f8591891239ea3b",
+      "parentUuid": "3ff9d843_d9f9521d",
       "range": {
         "startLine": 20,
         "startChar": 0,
