@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa4824af_84d111b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-03-01T20:08:25Z",
+      "side": 1,
+      "message": "suggest waiting or repeating in a couple of days for code changes required for Springboot 3 \u0026 JDK 17",
+      "revId": "ee9e5867a48ef055a6522ea43afa720eb63b7d82",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    }
+  ]
+}
