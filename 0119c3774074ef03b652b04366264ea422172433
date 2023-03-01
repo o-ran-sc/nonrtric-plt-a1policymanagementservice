@@ -35,6 +35,23 @@
       "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfd06018_3583fc4b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-03-01T20:06:54Z",
+      "side": 1,
+      "message": "Will go with larger docker base image for now. Will update with a smaller image soon. ",
+      "revId": "0119c3774074ef03b652b04366264ea422172433",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ff9d843_d9f9521d",
