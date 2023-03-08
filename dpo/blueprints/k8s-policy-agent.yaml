@@ -75,16 +75,6 @@ node_templates:
               get_input: envs
     properties:
       application_config:
-        streams_publishes:
-          dmaap_publisher:
-            dmaap_info:
-              topic_url: { concat: ['https://message-router:3905/events/',{ get_input: publish_topic_name }] }
-            type: message_router
-        streams_subscribes:
-          dmaap_subscriber:
-            dmaap_info:
-              topic_url: { concat: ['https://message-router:3905/events/',{ get_input: subscribe_topic_name }, '/', { get_input: consumer_group }, "/", { get_input: consumer_id }, "?timeout=15000&limit=100"] }
-            type: message_router
         ric:
           - name: ric1
             baseUrl: http://localhost:8083/
@@ -103,7 +93,7 @@ node_templates:
           type: http
           endpoint: /status
         ports:
-          - concat: ["8081", {get_input: external_port}]
+          - concat: ["8081", { get_input: external_port }]
       image:
         get_input: tag_version
       service_component_type: policy-agent
@@ -123,5 +113,3 @@ node_templates:
             get_input: policy-agent_cpu_request
           memory:
             get_input: policy-agent_memory_request
-
-

@@ -7,12 +7,6 @@ A1 Policy Management Service (from ONAP CCSDK)
 
 A1 Controller Service above A1 Controller/Adaptor that provides:
 
-* Unified REST & DMaaP NBI APIs for managing A1 Policies in all near-RT-RICs.
-
-  + Query A1 Policy Types in near-RT-RICs.
-  + Create/Query/Update/Delete A1 Policy Instances in near-RT-RICs.
-  + Query Status for A1 Policy Instances.
-
 * Maintains (persistent) cache of RAN's A1 Policy information.
 
   * Support RAN-wide view of A1 Policy information.
