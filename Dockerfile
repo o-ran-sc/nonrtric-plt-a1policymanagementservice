@@ -1,6 +1,6 @@
 #
 # ============LICENSE_START=======================================================
-#  Copyright (C) 2019 Nordix Foundation.
+#  Copyright (C) 2019-2023 Nordix Foundation.
 # ================================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,7 +17,25 @@
 # SPDX-License-Identifier: Apache-2.0
 # ============LICENSE_END=========================================================
 #
-FROM openjdk:17-jdk-slim
+FROM openjdk:17-jdk as jre-build
+
+RUN $JAVA_HOME/bin/jlink \
+--verbose \
+--add-modules ALL-MODULE-PATH \
+--strip-debug \
+--no-man-pages \
+--no-header-files \
+--compress=2 \
+--output /customjre
+
+# Use debian base image (same as openjdk uses)
+FROM debian:11-slim
+
+ENV JAVA_HOME=/jre
+ENV PATH="${JAVA_HOME}/bin:${PATH}"
+
+#copy JRE from the base image
+COPY --from=jre-build /customjre $JAVA_HOME
 
 ARG JAR
 
