@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21d9ba20_1fcfd4a0",
+        "filename": "Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000262
+      },
+      "writtenOn": "2023-03-09T09:37:37Z",
+      "side": 1,
+      "message": "Does the 11 mean java 11? \n\nIt must be java 17.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 19
+      },
+      "revId": "30046c084bf633a8a78eed58a82372ff6d8dd2f3",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    }
+  ]
+}
