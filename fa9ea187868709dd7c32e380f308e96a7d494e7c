@@ -22,6 +22,30 @@
       },
       "revId": "fa9ea187868709dd7c32e380f308e96a7d494e7c",
       "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d2a6b59_93fdb31d",
+        "filename": ".releases/maven-release.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-15T16:58:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "927000fc_ddf38330",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 71
+      },
+      "revId": "fa9ea187868709dd7c32e380f308e96a7d494e7c",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
     }
   ]
 }
