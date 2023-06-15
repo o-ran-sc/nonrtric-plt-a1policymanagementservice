@@ -19,7 +19,7 @@ from docs_conf.conf import *
 
 #branch configuration
 
-branch = 'latest'
+branch = 'h-release'
 onapbranch = 'latest'
 
 linkcheck_ignore = [
