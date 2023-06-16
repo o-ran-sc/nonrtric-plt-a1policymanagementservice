@@ -34,7 +34,7 @@ FROM debian:11-slim
 ENV JAVA_HOME=/jre
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
-#copy JRE from the base image
+# Copy JRE from the base image
 COPY --from=jre-build /customjre $JAVA_HOME
 
 ARG JAR
