@@ -59,6 +59,9 @@ Version history A1 Policy Management Service (A1 Policy Agent)
 | 2023-02-10 | 2.5.1    | Yennifer Chacon  | G Maintenance      |
 |            |          |                  | Release            |
 +------------+----------+------------------+--------------------+
+| 2023-06-16 | 2.6.0    | John Keeney      | H Release          |
+|            |          |                  |                    |
++------------+----------+------------------+--------------------+
 
 Release Data
 ============
@@ -273,4 +276,26 @@ G Maintenance Release
 +-----------------------------+---------------------------------------------------+
 | **Purpose of the delivery** | Update springboot version                         |
 |                             |                                                   |
++-----------------------------+---------------------------------------------------+
+
+H Release
+---------
++-----------------------------+---------------------------------------------------+
+| **Project**                 | Non-RT RIC A1 Policy Management Service           |
+|                             |                                                   |
++-----------------------------+---------------------------------------------------+
+| **Repo/commit-ID**          | nonrtric/plt/a1policymanagementservice            |
+|                             | 03913aa30c8d82576ac5adda68f68c4246f34fe7          |
+|                             |                                                   |
++-----------------------------+---------------------------------------------------+
+| **Release designation**     | H                                                 |
+|                             |                                                   |
++-----------------------------+---------------------------------------------------+
+| **Release date**            | 2023-06-16                                        |
+|                             |                                                   |
++-----------------------------+---------------------------------------------------+
+| **Purpose of the delivery** | nonrtric-plt-a1policymanagementservice:2.6.0      |
+|                             |   Numerous security/vulnerability updates         |
+|                             |   Added support for fine-grained authorisation    |
+|                             |   Numerous bug fix & stability improvements       |
 +-----------------------------+---------------------------------------------------+
