@@ -20,7 +20,7 @@ from docs_conf.conf import *
 #branch configuration
 
 branch = 'h-release'
-onapbranch = 'latest'
+onapbranch = 'london'
 
 linkcheck_ignore = [
     'http://localhost.*',
