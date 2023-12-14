@@ -19,8 +19,8 @@ from docs_conf.conf import *
 
 #branch configuration
 
-branch = 'latest'
-onapbranch = 'latest'
+branch = 'i-release'
+onapbranch = 'montreal'
 
 linkcheck_ignore = [
     'http://localhost.*',
