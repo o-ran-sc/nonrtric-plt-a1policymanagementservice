@@ -63,7 +63,7 @@ Version history A1 Policy Management Service (A1 Policy Agent)
 | 2023-06-16 | 2.6.0    | John Keeney      | H Release          |
 |            |          |                  |                    |
 +------------+----------+------------------+--------------------+
-| 2023-06-16 | 2.7.0    | John Keeney      | I Release          |
+| 2023-12-14 | 2.7.0    | John Keeney      | I Release          |
 |            |          |                  |                    |
 +------------+----------+------------------+--------------------+
 
