@@ -27,7 +27,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.0</version>
+        <version>3.2.4</version>
         <relativePath />
     </parent>
     <groupId>org.o-ran-sc.nonrtric.plt</groupId>
@@ -48,63 +48,72 @@
     </repositories>
     <properties>
         <java.version>17</java.version>
+        <software.amazon.awssdk.version>2.19.17</software.amazon.awssdk.version>
         <json.version>20231013</json.version>
+        <commons-io.version>2.14.0</commons-io.version>
+        <guava.version>32.0.1-jre</guava.version>
+        <surefire-maven-plugin.version>3.0.0-M8</surefire-maven-plugin.version>
+        <surefire-report-plugin.version>3.0.0-M8</surefire-report-plugin.version>
         <maven-compiler-plugin.version>3.10.0</maven-compiler-plugin.version>
-        <formatter-maven-plugin.version>2.13.0</formatter-maven-plugin.version>
-        <spotless-maven-plugin.version>2.30.0</spotless-maven-plugin.version>
         <docker-maven-plugin>0.43.0</docker-maven-plugin>
         <sonar-maven-plugin.version>3.7.0.1746</sonar-maven-plugin.version>
         <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
         <exec-maven-plugin.version>3.1.0</exec-maven-plugin.version>
-        <software.amazon.awssdk.version>2.19.17</software.amazon.awssdk.version>
-        <springdoc.version>2.0.2</springdoc.version>
-        <springdoc.openapi-ui.version>1.6.14</springdoc.openapi-ui.version>
-        <surefire-maven-plugin.version>3.0.0-M8</surefire-maven-plugin.version>
-        <surefire-report-plugin.version>3.0.0-M8</surefire-report-plugin.version>
     </properties>
-    <dependencies>    
+    <dependencies>
         <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.14.0</version>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>2.0.1.Final</version>
         </dependency>
         <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>32.0.1-jre</version>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>2.2.15</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openapitools</groupId>
+            <artifactId>jackson-databind-nullable</artifactId>
+            <version>0.2.4</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-validation</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webflux</artifactId>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
         </dependency>
         <dependency>
             <groupId>org.json</groupId>
@@ -112,41 +121,41 @@
             <version>${json.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.jersey.inject</groupId>
-            <artifactId>jersey-hk2</artifactId>
         </dependency>
         <!-- Actuator dependencies -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <!--REQUIRED
-        TO GENERATE DOCUMENTATION -->
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-            <version>${springdoc.version}</version>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-ui</artifactId>
-            <version>${springdoc.openapi-ui.version}</version>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
         </dependency>
-        <!-- TEST -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-test</artifactId>
-            <scope>test</scope>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>s3</artifactId>
+            <version>${software.amazon.awssdk.version}</version>
+        </dependency>
+        <!-- For development help -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -184,18 +193,15 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>com.github.erosb</groupId>
             <artifactId>everit-json-schema</artifactId>
-            <version>1.14.1</version>
-        </dependency>
-        <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>s3</artifactId>
-            <version>${software.amazon.awssdk.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.micrometer</groupId>
-            <artifactId>micrometer-registry-prometheus</artifactId>
+            <version>1.14.0</version>
         </dependency>
     </dependencies>
     <build>
@@ -265,6 +271,172 @@
                         <goals>
                             <goal>report</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>io.swagger.codegen.v3</groupId>
+                <artifactId>swagger-codegen-maven-plugin</artifactId>
+                <version>3.0.46</version>
+                <executions>
+                    <execution>
+                        <id>generate-openapi-json</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.basedir}/api/pms-api.yaml</inputSpec>
+                            <language>openapi</language>
+                            <output>${project.basedir}/api</output>
+                            <configOptions>
+                                <outputFile>pms-api.json</outputFile>
+                            </configOptions>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>6.6.0</version>
+                <executions>
+                    <execution>
+                        <id>generate-openapi-policy-api</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <generatorName>spring</generatorName>
+                            <inputSpec>${project.basedir}/api/pms-api.yaml</inputSpec>
+                            <library>spring-boot</library>
+                            <invokerPackage>org.onap.ccsdk.oran.a1policymanagementservice.controllers.v2</invokerPackage>
+                            <apiPackage>org.onap.ccsdk.oran.a1policymanagementservice.controllers.api.v2</apiPackage>
+                            <modelPackage>org.onap.ccsdk.oran.a1policymanagementservice.models.v2</modelPackage>
+                            <generateApiTests>false</generateApiTests>
+                            <generateModelTests>false</generateModelTests>
+                            <generateSupportingFiles>false</generateSupportingFiles>
+                            <skipValidateSpec>false</skipValidateSpec>
+                            <configOptions>
+                                <interfaceOnly>true</interfaceOnly>
+                                <useTags>true</useTags>
+                                <reactive>true</reactive>
+                                <dateLibrary>java8</dateLibrary>
+                                <java8>true</java8>
+                                <unhandledException>true</unhandledException>
+                                <openApiNullable>false</openApiNullable>
+                                <skipDefaultInterface>true</skipDefaultInterface>
+                            </configOptions>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>generate-openapi-html</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.basedir}/api/pms-api.json</inputSpec>
+                            <generatorName>html2</generatorName>
+                            <output>${project.basedir}/api/pms-api</output>
+                            <skipOperationExample>false</skipOperationExample>
+                            <strictSpec>false</strictSpec>
+                            <configOptions>
+                                <appDescription>The O-RAN Non-RT RIC A1 Policy Management Service
+                                    provides a REST API for managing O-RAN A1 Policies.</appDescription>
+                                <appName>ONAP CCSDK A1 Policy Management Service</appName>
+                                <infoUrl>https://wiki.onap.org/display/DW/O-RAN+A1+Policies+in+ONAP</infoUrl>
+                                <licenseInfo>Copyright (C) 2020-2023 Nordix Foundation. Licensed
+                                    under the Apache License, and Copyright (C) 2024 OpenInfra 
+                                    Foundation Europe. All rights reserved.</licenseInfo>
+                                <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+                            </configOptions>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-resource-configuration-files</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <overwrite>true</overwrite>
+                            <verbose>true</verbose>
+                            <outputDirectory>${project.basedir}/config</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}/onap/oran/a1-policy-management/config</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-resource-openapi-files-fromsubmodule</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <verbose>true</verbose>
+                            <overwrite>true</overwrite>
+                            <outputDirectory>${project.basedir}/api</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}/onap/oran/a1-policy-management/api</directory>
+                                    <includes>
+                                        <include>pms-api.json</include>
+                                        <include>pms-api.yaml</include>
+                                    </includes>
+                                    </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-resource-doc-openapi</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.basedir}/docs/offeredapis/swagger</outputDirectory>
+                            <overwrite>true</overwrite>
+                            <verbose>true</verbose>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}/api</directory>
+                                    <includes>
+                                        <include>pms-api.json</include>
+                                        <include>pms-api.yaml</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-resource-openapi-html</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <verbose>true</verbose>
+                            <outputDirectory>
+                                ${project.basedir}/docs/offeredapis/openapitoolgen/offeredapis/pms-api</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}/api/pms-api</directory>
+                                    <includes>
+                                        <include>index.html</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
@@ -346,7 +518,7 @@
                 <executions>
                     <execution>
                         <id>git submodule update</id>
-                        <phase>initialize</phase>
+                        <phase>validate</phase>
                         <configuration>
                             <executable>git</executable>
                             <arguments>
@@ -354,21 +526,6 @@
                                 <argument>update</argument>
                                 <argument>--init</argument>
                                 <argument>--recursive</argument>
-                            </arguments>
-                        </configuration>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>copy configuration</id>
-                        <phase>initialize</phase>
-                        <configuration>
-                            <executable>cp</executable>
-                            <arguments>
-                                <argument>-r</argument>
-                                <argument>onap/oran/a1-policy-management/config</argument>
-                                <argument>.</argument>
                             </arguments>
                         </configuration>
                         <goals>
