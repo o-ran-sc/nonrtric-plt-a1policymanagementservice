@@ -4,7 +4,9 @@
 docs/_build/
 .DS_STORE
 .swagger*
+.openapi*
 docs/offeredapis/swagger/README.md
+api/README.md
 
 # Eclipse
 .checkstyle
