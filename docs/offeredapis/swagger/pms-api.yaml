@@ -1,0 +1,1370 @@
+#  ============LICENSE_START=======================================================
+#  Copyright (C) 2020-2023 Nordix Foundation
+#  Copyright (C) 2023-2024 OpenInfra Foundation Europe. All rights reserved.
+#  Modifications Copyright (C) 2021 Pantheon.tech
+#  Modifications Copyright (C) 2021 Bell Canada
+#  ================================================================================
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#        http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#  SPDX-License-Identifier: Apache-2.0
+#  ============LICENSE_END=========================================================
+
+openapi: 3.0.3
+info:
+  x-api-id: a31c510b-20e6-4a08-af16-368c44d7fba8
+  x-audience: external-public
+  description: "<h2>General</h2><p>The O-RAN Non-RT RIC Policy Management Service\
+    \ provides a REST API for managemecnt of A1 policies. <br/>The main tasks of the\
+    \ service are:</p><ul><li>A1 Policy creation, modification and deletion.</li><li>Monitoring\
+    \ and maintaining consistency of the SMO view of A1 policies and the Near-RT RICs</li><li>Maintaining\
+    \ a view of supported Near-RT RIC policy types</li><li>Supervision of using services\
+    \ (R-APPs). When a service is unavailable, its policies are removed.</li></ul><h2>APIs\
+    \ provided or defined by the service</h2><h3>A1 Policy Management</h3><p>This\
+    \ is an API for management of A1 Policies.</p><ul><li>A1 Policy retrieval, creation,\
+    \ modification and deletion.</li><li>Retrieval of supported A1 Policy types for\
+    \ a Near-RT RIC</li><li>Retrieval of status for existing A1 policies</li></ul><h3>Management\
+    \ of configuration</h3><p>API for updating and retrieval of the component configuration.\
+    \ Note that there other ways to maintain the configuration.</p><h3>Service callbacks</h3><p>These\
+    \ are endpoints that are invoked by this service. The callbacks are registered\
+    \ in this service at service registration.</p><h3>NearRT-RIC Repository</h3><p>This\
+    \ is an API that provides support for looking up a NearRT-RIC. Each A1 policy\
+    \ is targeted for one Near-RT RIC.</p><h3>Health Check</h3><p>API used for supervision\
+    \ of the PMS component.</p><h3>Service Registry and Supervision</h3><p>API used\
+    \ for registering services that uses PMS. Each A1 policy is optionally owned by\
+    \ a service. PMS can supervise each registered service by a heart-beat supervision\
+    \ and will automatically remove policies for unavailable services. Note that a\
+    \ service does not need to be registered in order to create A1 Policies. This\
+    \ is a feature that is optional to use.</p><h3>Authorization API</h3><p>API used\
+    \ for access control of A1 Policy access. If configured, an external authorization\
+    \ provider is requested to grant access to the A1 Policy type.</p><h3>Spring Boot\
+    \ Actuator</h3><p>Provides generic functions  used to monitor and manage the Spring\
+    \ web application.</p>"
+  license:
+    name: Copyright (C) 2020-2023 Nordix Foundation. Licensed under the Apache License.
+    url: http://www.apache.org/licenses/LICENSE-2.0
+  title: A1 Policy Management Service
+  version: 1.3.0
+  contact:
+    url: https://www.onap.org/
+    email: discuss-list@onap.com
+servers:
+  - url: /
+tags:
+  - name: A1 Policy Management
+    description: "API used to create polices, Policy Instances and get them as individual
+    using an ID or get all policies/Instances."
+  - name: NearRT-RIC Repository
+    description: "API used to get the NearRT-RIC for the managed element."
+  - name: Service Registry and Supervision
+    description: "API used to keep the service Alive with in the timeout period"
+  - name: Health Check
+    description: "API used to get the health status and statistics of this service"
+  - name: Service callbacks
+  - name: Authorization API
+    description: "API used for authorization of information A1 policy access (this is
+     provided by an authorization producer such as OPA). <br> Note that this API is called
+     by PMS, it is not provided."
+  - name: Configuration
+    description: "API used to create or fetch the application configuration."
+  - name: Actuator
+    description: Monitor and interact
+    externalDocs:
+      description: Spring Boot Actuator Web API Documentation
+      url: https://docs.spring.io/spring-boot/docs/current/actuator-api/html/
+paths:
+  /a1-policy/v2/policy-instances:
+    get:
+      description: "Returns a list of A1 policies matching given search criteria.\
+        \ <br>If several query parameters are defined, the policies matching all conditions\
+        \ are returned."
+      operationId: getPolicyInstances
+      parameters:
+        - description: Select policies with a given type identity.
+          explode: true
+          in: query
+          name: policytype_id
+          required: false
+          schema:
+            type: string
+          style: form
+        - description: Select policies for a given Near-RT RIC identity.
+          explode: true
+          in: query
+          name: ric_id
+          required: false
+          schema:
+            type: string
+          style: form
+        - description: Select policies owned by a given service.
+          explode: true
+          in: query
+          name: service_id
+          required: false
+          schema:
+            type: string
+          style: form
+        - description: Select policies of a given type name (type identity has the format
+            <typename_version>)
+          explode: true
+          in: query
+          name: type_name
+          required: false
+          schema:
+            type: string
+          style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                policy_info_list:
+                  $ref: '#/components/examples/policy_info_list'
+              schema:
+                $ref: '#/components/schemas/policy_info_list'
+          description: OK - Returns A1 Policies which matches the criteria
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_information'
+          description: "Not Found - Near-RT RIC, policy type or service not found"
+      summary: Query for A1 policy instances
+      tags:
+        - A1 Policy Management
+  /example-authz-check:
+    post:
+      description: The authorization function decides if access is granted.
+      operationId: performAccessControl
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/policy_authorization'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/authorization_result'
+          description: OK
+        "403":
+          $ref: '#/components/responses/Forbidden'
+      summary: Request for access authorization.
+      tags:
+        - Authorization API
+  /actuator/threaddump:
+    get:
+      x-internal: true
+      operationId: threaddump
+      responses:
+        "200":
+          content:
+            text/plain;charset=UTF-8:
+              schema:
+                type: object
+            application/vnd.spring-boot.actuator.v3+json:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            application/vnd.spring-boot.actuator.v2+json:
+              schema:
+                type: object
+          description: OK
+      summary: Actuator web endpoint 'threaddump'
+      tags:
+        - Actuator
+  /a1-policy/v2/status:
+    get:
+      operationId: getStatus
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status_info'
+              examples:
+                status_info:
+                  $ref: '#/components/examples/status_info'
+          description: OK- Service is living Ok
+      description: Returns status and statistics of this service
+      tags:
+        - Health Check
+  /actuator/loggers:
+    get:
+      x-internal: true
+      operationId: loggers
+      responses:
+        "200":
+          content:
+            application/vnd.spring-boot.actuator.v3+json:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            application/vnd.spring-boot.actuator.v2+json:
+              schema:
+                type: object
+          description: OK
+      summary: Actuator web endpoint 'loggers'
+      tags:
+        - Actuator
+  /actuator/health/**:
+    get:
+      x-internal: true
+      operationId: health-path
+      responses:
+        "200":
+          content:
+            application/vnd.spring-boot.actuator.v3+json:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            application/vnd.spring-boot.actuator.v2+json:
+              schema:
+                type: object
+          description: OK
+      summary: Actuator web endpoint 'health-path'
+      tags:
+        - Actuator
+  /a1-policy/v2/rics/ric:
+    get:
+      description: Either a Near-RT RIC identity or a Managed Element identity can
+        be specified.<br>The intention with Managed Element identity is the ID used
+        in O1 for accessing the traffical element (such as the ID of CU).
+      operationId: getRic
+      parameters:
+        - description: "The identity of a Managed Element. If given, the Near-RT RIC\
+          \ managing the ME is returned."
+          explode: true
+          in: query
+          name: managed_element_id
+          required: false
+          schema:
+            type: string
+          style: form
+        - description: The identity of a Near-RT RIC to get information for.
+          explode: true
+          in: query
+          name: ric_id
+          required: false
+          schema:
+            type: string
+          style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ric_info'
+              examples:
+                ric_info:
+                  $ref: '#/components/examples/ric_info'
+          description: OK - Near-RT RIC is found
+        "404":
+          $ref: '#/components/responses/NotFound'
+          description: NotFound - Requested NearRT-RIC Not Found
+      summary: Returns info of Near-RT RIC queried by the ric-id and managed-element-id
+      tags:
+        - NearRT-RIC Repository
+  /actuator/shutdown:
+    post:
+      x-internal: true
+      operationId: shutdown
+      responses:
+        "200":
+          content:
+            application/vnd.spring-boot.actuator.v3+json:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            application/vnd.spring-boot.actuator.v2+json:
+              schema:
+                type: object
+          description: OK
+      summary: Actuator web endpoint 'shutdown'
+      tags:
+        - Actuator
+  /a1-policy/v2/policy-types:
+    get:
+      operationId: getPolicyTypes
+      parameters:
+        - description: Select types for the given Near-RT RIC identity.
+          explode: true
+          in: query
+          name: ric_id
+          required: false
+          schema:
+            type: string
+          style: form
+        - description: Select types with the given type name (type identity has the
+            format <typename_version>)
+          explode: true
+          in: query
+          name: type_name
+          required: false
+          schema:
+            type: string
+          style: form
+        - description: Select types that are compatible with the given version. This
+            parameter is only applicable in conjunction with type_name. As an example
+            version 1.9.1 is compatible with 1.0.0 but not the other way around. Matching
+            types will be returned sorted in ascending order.
+          explode: true
+          in: query
+          name: compatible_with_version
+          required: false
+          schema:
+            type: string
+          style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                policy_type_id_list:
+                  $ref: '#/components/examples/policy_type_id_list'
+              schema:
+                $ref: '#/components/schemas/policy_type_id_list'
+          description: OK - Policy Type IDs Found
+        "404":
+          $ref: '#/components/responses/NotFound'
+          description: 'Not Found - Requested Policy Type IDs Not Found'
+      description: Query policy type identities
+      tags:
+        - A1 Policy Management
+  /a1-policy/v2/policies/{policy_id}:
+    delete:
+      description: Deleting the policy using the Policy's Policy ID.
+      operationId: deletePolicy
+      parameters:
+        - explode: false
+          in: path
+          name: policy_id
+          required: true
+          schema:
+            type: string
+          style: simple
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/void'
+          description: OK - Policy deleted
+        "423":
+          $ref: '#/components/responses/Locked'
+          description: 'The requested policy using policy_id is Locked'
+      summary: Delete a policy
+      tags:
+        - A1 Policy Management
+    get:
+      operationId: getPolicy
+      parameters:
+        - explode: false
+          in: path
+          name: policy_id
+          required: true
+          schema:
+            type: string
+          style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/policy_info'
+              examples:
+                policy_info:
+                  $ref: '#/components/examples/policy_info'
+          description: OK - Policy found
+        "404":
+          $ref: '#/components/responses/NotFound'
+          description: 'Not Found - Requested Policy using policy_id is not found'
+      description: Returns a policy
+      tags:
+        - A1 Policy Management
+  /actuator/metrics/{requiredMetricName}:
+    get:
+      x-internal: true
+      operationId: metrics-requiredMetricName
+      parameters:
+        - explode: false
+          in: path
+          name: requiredMetricName
+          required: true
+          schema:
+            type: string
+          style: simple
+      responses:
+        "200":
+          content:
+            application/vnd.spring-boot.actuator.v3+json:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            application/vnd.spring-boot.actuator.v2+json:
+              schema:
+                type: object
+          description: OK
+      summary: Actuator web endpoint 'metrics-requiredMetricName'
+      tags:
+        - Actuator
+  /a1-policy/v2/configuration:
+    get:
+      x-internal: true
+      operationId: getConfiguration
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: string
+          description: OK - Configuration
+        "404":
+          $ref: '#/components/responses/NotFound'
+          description: Not Found - Configuration is not found or readable
+      description: Returns the contents of the application configuration file
+      tags:
+        - Configuration
+    put:
+      x-internal: true
+      operationId: putConfiguration
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/void'
+          description: OK - Configuration updated
+        "400":
+          $ref: '#/components/responses/BadRequest'
+      description: Replace the current configuration with the given configuration
+      tags:
+        - Configuration
+  /actuator:
+    get:
+      x-internal: true
+      operationId: links
+      responses:
+        "200":
+          content:
+            application/vnd.spring-boot.actuator.v3+json:
+              schema:
+                additionalProperties:
+                  additionalProperties:
+                    $ref: '#/components/schemas/Link'
+                  type: object
+                type: object
+            application/json:
+              schema:
+                additionalProperties:
+                  additionalProperties:
+                    $ref: '#/components/schemas/Link'
+                  type: object
+                type: object
+            application/vnd.spring-boot.actuator.v2+json:
+              schema:
+                additionalProperties:
+                  additionalProperties:
+                    $ref: '#/components/schemas/Link'
+                  type: object
+                type: object
+          description: OK
+      summary: Actuator root web endpoint
+      tags:
+        - Actuator
+  /actuator/loggers/{name}:
+    get:
+      x-internal: true
+      operationId: loggers-name
+      parameters:
+        - explode: false
+          in: path
+          name: name
+          required: true
+          schema:
+            type: string
+          style: simple
+      responses:
+        "200":
+          content:
+            application/vnd.spring-boot.actuator.v3+json:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            application/vnd.spring-boot.actuator.v2+json:
+              schema:
+                type: object
+          description: OK
+      summary: Actuator web endpoint 'loggers-name'
+      tags:
+        - Actuator
+    post:
+      x-internal: true
+      operationId: loggers-name_2
+      parameters:
+        - explode: false
+          in: path
+          name: name
+          required: true
+          schema:
+            type: string
+          style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              enum:
+                - TRACE
+                - DEBUG
+                - INFO
+                - WARN
+                - ERROR
+                - FATAL
+                - "OFF"
+              type: string
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                type: object
+          description: OK
+      summary: Actuator web endpoint 'loggers-name'
+      tags:
+        - Actuator
+  /a1-policy/v2/services/{service_id}/keepalive:
+    put:
+      description: A registered service should invoke this operation regularly to
+        indicate that it is still alive. If a registered service fails to invoke this
+        operation before the end of a timeout period the service will be deregistered
+        and all its A1 policies wil be removed. (This timeout can be set or disabled
+        when each service is initially registered)
+      operationId: keepAliveService
+      parameters:
+        - explode: false
+          in: path
+          name: service_id
+          required: true
+          schema:
+            type: string
+          style: simple
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                type: object
+          description: "OK - Service supervision timer refreshed, OK"
+        "404":
+          $ref: '#/components/responses/NotFound'
+      summary: Heartbeat indicates that the service is running
+      tags:
+        - Service Registry and Supervision
+  /actuator/metrics:
+    get:
+      x-internal: true
+      operationId: metrics
+      responses:
+        "200":
+          content:
+            application/vnd.spring-boot.actuator.v3+json:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            application/vnd.spring-boot.actuator.v2+json:
+              schema:
+                type: object
+          description: OK
+      summary: Actuator web endpoint 'metrics'
+      tags:
+        - Actuator
+  /a1-policy/v2/rics:
+    get:
+      description: The call returns all Near-RT RICs that supports a given policy
+        type identity
+      operationId: getRics
+      parameters:
+        - description: "The identity of a policy type. If given, all Near-RT RICs supporting\
+          \ the policy type are returned"
+          explode: true
+          in: query
+          name: policytype_id
+          required: false
+          schema:
+            type: string
+          style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ric_info_list'
+              examples:
+                ric_info_list:
+                  $ref: '#/components/examples/ric_info_list'
+          description: OK
+        "404":
+          $ref: '#/components/responses/NotFound'
+      summary: Query Near-RT RIC information
+      tags:
+        - NearRT-RIC Repository
+  /a1-policy/v2/services:
+    get:
+      description: Either information about a registered service with given identity
+        or all registered services are returned.
+      operationId: getServices
+      parameters:
+        - description: The identity of the service
+          explode: true
+          in: query
+          name: service_id
+          required: false
+          schema:
+            type: string
+          style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/service_status_list'
+              examples:
+                service_status_list:
+                  $ref: '#/components/examples/service_status_list'
+          description: OK
+        "404":
+          $ref: '#/components/responses/NotFound'
+      summary: Returns service information
+      tags:
+        - Service Registry and Supervision
+    put:
+      description: "Registering a service is needed to:<ul><li>Get callbacks about\
+        \ available NearRT RICs.</li><li>Activate supervision of the service. If a\
+        \ service is inactive, its policies will automatically be deleted.</li></ul>Policies\
+        \ can be created even if the service is not registerred. This is a feature\
+        \ which it is optional to use."
+      operationId: putService
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/service_registration_info'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                type: object
+          description: OK - Service updated
+        "201":
+          content:
+            '*/*':
+              schema:
+                type: object
+          description: Created - Service created
+        "400":
+          $ref: '#/components/responses/BadRequest'
+      summary: Register a service
+      tags:
+        - Service Registry and Supervision
+      callbacks:
+        RICStatus:
+          "{$request.body#/callback_url}":
+            post:
+              description: The URL to this call is registered at Service registration.
+              operationId: serviceCallback
+              requestBody:
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/service_callback_info_v2'
+                required: true
+              responses:
+                "200":
+                  content:
+                    application/json:
+                      schema:
+                        $ref: '#/components/schemas/void'
+                  description: OK
+                "404":
+                  $ref: '#/components/responses/NotFound'
+              summary: Callback for Near-RT RIC status
+              tags:
+                - Service callbacks
+  /actuator/info:
+    get:
+      x-internal: true
+      operationId: info
+      responses:
+        "200":
+          content:
+            application/vnd.spring-boot.actuator.v3+json:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            application/vnd.spring-boot.actuator.v2+json:
+              schema:
+                type: object
+          description: OK
+      summary: Actuator web endpoint 'info'
+      tags:
+        - Actuator
+  /status:
+    get:
+      operationId: getStatusV1
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                type: string
+          description: OK -  Service is living
+      description: Returns status and statistics of this service
+      tags:
+        - Health Check
+  /a1-policy/v2/policy-types/{policytype_id}:
+    get:
+      operationId: getPolicyTypeDefinition
+      parameters:
+        - explode: false
+          in: path
+          name: policytype_id
+          required: true
+          schema:
+            type: string
+          style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/policy_type_definition'
+              examples:
+                policy_type_definition:
+                  $ref: '#/components/examples/policy_type_definition'
+          description: OK - schema of the given policy type
+        "404":
+          $ref: '#/components/responses/NotFound'
+      description: Returns a policy type definition
+      tags:
+        - A1 Policy Management
+  /actuator/logfile:
+    get:
+      x-internal: true
+      operationId: logfile
+      responses:
+        "200":
+          content:
+            text/plain;charset=UTF-8:
+              schema:
+                type: object
+          description: OK
+      summary: Actuator web endpoint 'logfile'
+      tags:
+        - Actuator
+  /actuator/health:
+    get:
+      x-internal: true
+      operationId: health
+      responses:
+        "200":
+          content:
+            application/vnd.spring-boot.actuator.v3+json:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            application/vnd.spring-boot.actuator.v2+json:
+              schema:
+                type: object
+          description: OK
+      summary: Actuator web endpoint 'health'
+      tags:
+        - Actuator
+  /a1-policy/v2/policies:
+    get:
+      description: "Returns a list of A1 policies matching given search criteria.\
+        \ <br>If several query parameters are defined, the policies matching all conditions\
+        \ are returned."
+      operationId: getPolicyIds
+      parameters:
+        - description: Select policies of a given policy type identity.
+          explode: true
+          in: query
+          name: policytype_id
+          required: false
+          schema:
+            type: string
+          style: form
+        - description: Select policies of a given Near-RT RIC identity.
+          explode: true
+          in: query
+          name: ric_id
+          required: false
+          schema:
+            type: string
+          style: form
+        - description: Select policies owned by a given service.
+          explode: true
+          in: query
+          name: service_id
+          required: false
+          schema:
+            type: string
+          style: form
+        - description: Select policies of types with the given type name (type identity
+            has the format <typename_version>)
+          explode: true
+          in: query
+          name: type_name
+          required: false
+          schema:
+            type: string
+          style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                policy_id_list:
+                  $ref: '#/components/examples/policy_id_list'
+              schema:
+                $ref: '#/components/schemas/policy_id_list'
+          description: OK - Policy identities
+        "404":
+          $ref: '#/components/responses/NotFound'
+      summary: Query policy identities
+      tags:
+        - A1 Policy Management
+    put:
+      operationId: putPolicy
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/policy_info'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/void'
+          description: OK - Policy updated
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/void'
+          description: Created - Policy created
+        "423":
+          $ref: '#/components/responses/Locked'
+      description: Create or update a policy
+      tags:
+        - A1 Policy Management
+  /a1-policy/v2/services/{service_id}:
+    delete:
+      operationId: deleteService
+      parameters:
+        - explode: false
+          in: path
+          name: service_id
+          required: true
+          schema:
+            type: string
+          style: simple
+      responses:
+        "204":
+          content:
+            '*/*':
+              schema:
+                type: object
+          description: No Content - Service unregistered
+        "404":
+          $ref: '#/components/responses/NotFound'
+      description: Unregister a service
+      tags:
+        - Service Registry and Supervision
+  /actuator/heapdump:
+    get:
+      x-internal: true
+      operationId: heapdump
+      responses:
+        "200":
+          content:
+            application/octet-stream:
+              schema:
+                type: object
+          description: OK
+      summary: Actuator web endpoint 'heapdump'
+      tags:
+        - Actuator
+  /a1-policy/v2/policies/{policy_id}/status:
+    get:
+      operationId: getPolicyStatus
+      parameters:
+        - explode: false
+          in: path
+          name: policy_id
+          required: true
+          schema:
+            type: string
+          style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/policy_status_info'
+              examples:
+                policy_status_info:
+                  $ref: '#/components/examples/policy_status_info'
+          description: OK -  Policy status
+        "404":
+          $ref: '#/components/responses/NotFound'
+      description: Returns a policy status
+      tags:
+        - A1 Policy Management
+components:
+  responses:
+    Locked:
+      description: "Locked - HTTP Status code which can be used when the state is Locked"
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/error_information'
+          example:
+            status: 423
+            title: Locked
+            detail: Requested resource is in a locked state.
+    BadRequest:
+      description: Bad Request
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/error_information'
+          example:
+            status: 400
+            title: Bad Request
+            detail: The provided request is not valid.
+    Forbidden:
+      description: Forbidden
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/error_information'
+          example:
+            status: 403
+            title: Forbidden
+            detail: Your role does not allow to perform this action. Contact System Administrator to change your access rights.
+    NotFound:
+      description: Not Found
+      content:
+        application/problem+json:
+          example:
+            [ ]
+
+  examples:
+    service_status:
+      description: List of service information
+      value:
+        callback_url: callback_url
+        service_id: service_id
+        keep_alive_interval_seconds: 0
+        time_since_last_activity_seconds: 6
+
+    service_status_list:
+      description: List of service information
+      value:
+        service_list:
+          - callback_url: callback_url
+            service_id: service_id
+            keep_alive_interval_seconds: 0
+            time_since_last_activity_seconds: 6
+          - callback_url: callback_url
+            service_id: service_id
+            keep_alive_interval_seconds: 0
+            time_since_last_activity_seconds: 6
+    policy_type_definition:
+      description: Schema of the given Policy type
+      value:
+        policy_schema: "{}"
+    policy_type_id_list:
+      description: Array of policy type id's
+      value:
+        policy_type_id_list:
+          - policytype_id
+          - policytype_id
+    policy_info:
+      description: Policy information of one A1-P policy
+      value:
+        ric_id: ric_id
+        policy_id: policy_id
+        transient: false
+        service_id: service_id
+        policy_data: "{}"
+        status_notification_uri: status_notification_uri
+        policytype_id: policytype_id
+    policy_info_list:
+      description: List of policy information
+      value:
+        policies:
+          - ric_id: ric_id
+            policy_id: policy_id
+            transient: false
+            service_id: service_id
+            policy_data: "{}"
+            status_notification_uri: status_notification_uri
+            policytype_id: policytype_id
+          - ric_id: ric_id
+            policy_id: policy_id
+            transient: false
+            service_id: service_id
+            policy_data: "{}"
+            status_notification_uri: status_notification_uri
+            policytype_id: policytype_id
+    policy_id_list:
+      description: A list of policy identities
+      value:
+        policy_ids:
+          - some_policy_id
+          - some_policy_id
+    policy_status_info:
+      description: Status for one A1-P Policy
+      value:
+        last_modified: last_modified
+        status:
+          value:
+            status: status
+    status_info:
+      value:
+        status: status
+    ric_info:
+      value:
+        ric_id: ric_id
+        managed_element_ids:
+          - some_managed_element_id
+          - some_managed_element_id
+        state: UNAVAILABLE
+        policytype_ids:
+          - some_policytype_id
+          - some_policytype_id
+    ric_info_list:
+      value:
+        rics:
+          - ric_id: ric_id
+            managed_element_ids:
+              - some_managed_element_id
+              - some_managed_element_id
+            state: UNAVAILABLE
+            policytype_ids:
+              - policytype_id
+              - policytype_id
+          - ric_id: ric_id
+            managed_element_ids:
+              - managed_element_ids
+              - managed_element_ids
+            state: UNAVAILABLE
+            policytype_ids:
+              - policytype_ids
+              - policytype_ids
+
+  schemas:
+    policy_type_definition:
+      description: Contains policy type schema definition
+      type: object
+      properties:
+        policy_schema:
+          description: Policy type json schema. The schema is a json object following
+            http://json-schema.org/draft-07/schema
+          type: object
+    error_information:
+      description: Problem as defined in https://tools.ietf.org/html/rfc7807
+      properties:
+        detail:
+          description: ' A human-readable explanation specific to this occurrence
+            of the problem.'
+          example: Policy type not found
+          type: string
+        title:
+          description: 'A specific error name'
+          type: string
+          example: Not Found
+        status:
+          description: 'The HTTP status code generated by the origin server for this
+            occurrence of the problem. '
+          example: 404
+          format: int32
+          type: integer
+      type: object
+    void:
+      description: Void/empty
+      type: object
+    status_info:
+      properties:
+        status:
+          description: status text
+          type: string
+      type: object
+    authorization_result:
+      description: Result of authorization
+      example:
+        result: true
+      properties:
+        result:
+          description: "If true, the access is granted"
+          type: boolean
+      required:
+        - result
+      type: object
+    ric_info:
+      description: Information for a Near-RT RIC
+      properties:
+        ric_id:
+          description: identity of the Near-RT RIC
+          type: string
+        managed_element_ids:
+          description: O1 identities for managed entities
+          items:
+            description: O1 identities for managed entities
+            type: string
+          type: array
+        state:
+          description: Represents the states for a Near-RT RIC
+          enum:
+            - UNAVAILABLE
+            - AVAILABLE
+            - SYNCHRONIZING
+            - CONSISTENCY_CHECK
+          type: string
+        policytype_ids:
+          description: supported policy types
+          items:
+            description: supported policy types
+            type: string
+          type: array
+      type: object
+    service_registration_info:
+      description: Information for one service
+      properties:
+        callback_url:
+          description: callback for notifying of Near-RT RIC state changes
+          type: string
+        service_id:
+          description: identity of the service
+          type: string
+        keep_alive_interval_seconds:
+          description: "keep alive interval for the service. This is used to enable\
+            \ optional heartbeat supervision of the service. If set (> 0) the registered\
+            \ service should regularly invoke a 'keepalive' REST call. When a service\
+            \ fails to invoke this 'keepalive' call within the configured time, the\
+            \ service is considered unavailable. An unavailable service will be automatically\
+            \ deregistered and its policies will be deleted. Value 0 means timeout\
+            \ supervision is disabled."
+          format: int64
+          type: integer
+      required:
+        - service_id
+      type: object
+    policy_info_list:
+      description: List of policy information
+      properties:
+        policies:
+          description: List of policy information
+          items:
+            $ref: '#/components/schemas/policy_info'
+          type: array
+      type: object
+    policy_status_info:
+      description: Status for one A1-P Policy
+      properties:
+        last_modified:
+          description: "timestamp, last modification time"
+          type: string
+        status:
+          description: the Policy status
+          type: object
+      type: object
+    service_status:
+      properties:
+        callback_url:
+          description: callback for notifying of RIC synchronization
+          type: string
+        service_id:
+          description: identity of the service
+          type: string
+        keep_alive_interval_seconds:
+          description: policy keep alive timeout
+          format: int64
+          type: integer
+        time_since_last_activity_seconds:
+          description: time since last invocation by the service
+          format: int64
+          type: integer
+      type: object
+    ric_info_list:
+      description: List of Near-RT RIC information
+      properties:
+        rics:
+          description: List of Near-RT RIC information
+          items:
+            $ref: '#/components/schemas/ric_info'
+          type: array
+      type: object
+    input:
+      description: input
+      properties:
+        access_type:
+          description: Access type
+          enum:
+            - READ
+            - WRITE
+            - DELETE
+          type: string
+        auth_token:
+          description: Authorization token
+          type: string
+        policy_type_id:
+          description: Policy type identifier
+          type: string
+      required:
+        - access_type
+        - auth_token
+        - policy_type_id
+      type: object
+    policy_authorization:
+      description: Authorization request for A1 policy requests
+      properties:
+        input:
+          $ref: '#/components/schemas/input'
+      required:
+        - input
+      type: object
+    policy_type_id_list:
+      description: Information about policy types
+      properties:
+        policytype_ids:
+          description: Policy type identities
+          items:
+            description: Policy type identities
+            type: string
+          type: array
+      type: object
+    policy_info:
+      description: Information for one A1-P Policy
+      properties:
+        ric_id:
+          description: identity of the target Near-RT RIC
+          type: string
+        policy_id:
+          description: identity of the policy
+          type: string
+        transient:
+          default: false
+          description: "if true, the policy is deleted at RIC restart. If false, its\
+            \ value is maintained by this service until explicitly deleted. Default\
+            \ false."
+          example: false
+          nullable: false
+          type: boolean
+        service_id:
+          description: the identity of the service owning the policy. This can be
+            used to group the policies (it is possible to get all policies associated
+            to a service). Note that the service does not need to be registered.
+          type: string
+        policy_data:
+          description: the configuration of the policy
+          type: object
+        status_notification_uri:
+          description: Callback URI for policy status updates
+          type: string
+        policytype_id:
+          description: identity of the policy type
+          type: string
+      required:
+        - ric_id
+        - policy_id
+        - service_id
+        - policy_data
+        - policytype_id
+      type: object
+    policy_id_list:
+      description: A list of policy identities
+      example:
+        policy_ids:
+          - policy_ids
+          - policy_ids
+      properties:
+        policy_ids:
+          description: Policy identities
+          items:
+            description: Policy identities
+            type: string
+          type: array
+      type: object
+    service_status_list:
+      properties:
+        service_list:
+          description: List of service information
+          items:
+            $ref: '#/components/schemas/service_status'
+          type: array
+      type: object
+    service_callback_info_v2:
+      description: Information transferred as in Service callbacks (callback_url)
+      properties:
+        ric_id:
+          description: identity of a Near-RT RIC
+          type: string
+        event_type:
+          description: "values:\nAVAILABLE: the  Near-RT RIC has become available\
+            \ for A1 Policy management"
+          enum:
+            - AVAILABLE
+          type: string
+      required:
+        - event_type
+        - ric_id
+      type: object
+    Link:
+      properties:
+        templated:
+          type: boolean
+        href:
+          type: string
+      type: object
