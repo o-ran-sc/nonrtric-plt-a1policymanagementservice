@@ -1,5 +1,6 @@
 #  ============LICENSE_START===============================================
 #  Copyright (C) 2021-2022 Nordix Foundation. All rights reserved.
+#  Copyright (C) 2024 OpenInfra Foundation Europe. All rights reserved.
 #  ========================================================================
 #  Licensed under the Apache License, Version 2.0 (the "License");
 #  you may not use this file except in compliance with the License.
@@ -29,6 +30,10 @@ linkcheck_ignore = [
 ]
 
 extensions = ['sphinx.ext.intersphinx',]
+
+html_extra_path = [
+    'offeredapis/openapitoolgen/offeredapis/pms-api'
+]
 
 #intershpinx mapping with other projects
 intersphinx_mapping = {}

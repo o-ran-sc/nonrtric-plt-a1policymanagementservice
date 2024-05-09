@@ -1,17 +1,17 @@
 .. This work is licensed under a Creative Commons Attribution 4.0 International License.
 .. http://creativecommons.org/licenses/by/4.0
 .. Copyright (C) 2021 Nordix. All rights reserved.
-.. Copyright (C) 2023 OpenInfra Foundation Europe. All rights reserved.
+.. Copyright (C) 2023-2024 OpenInfra Foundation Europe. All rights reserved.
 
 =============
-Release-Notes
+Release Notes
 =============
 
 
 This document provides the release notes for the release of the Non-RT RIC A1 Policy Management Service.
 
 
-Version history A1 Policy Management Service (A1 Policy Agent) 
+Version history A1 Policy Management Service (A1 Policy Agent)
 ==============================================================
 
 +------------+----------+------------------+--------------------+
