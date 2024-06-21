@@ -22,3 +22,4 @@ infer-out/
 .factorypath
 
 coverage.*
+bin/
