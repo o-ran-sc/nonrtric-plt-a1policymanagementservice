@@ -48,7 +48,7 @@
     </repositories>
     <properties>
         <java.version>17</java.version>
-        <software.amazon.awssdk.version>2.19.17</software.amazon.awssdk.version>
+        <software.amazon.awssdk.version>2.20.12</software.amazon.awssdk.version>
         <json.version>20231013</json.version>
         <commons-io.version>2.14.0</commons-io.version>
         <guava.version>32.0.1-jre</guava.version>
@@ -124,6 +124,16 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>1.5.5.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>1.5.5.Final</version>
         </dependency>
         <!-- Actuator dependencies -->
         <dependency>
@@ -203,7 +213,56 @@
             <artifactId>everit-json-schema</artifactId>
             <version>1.14.0</version>
         </dependency>
+       <!-- For Tracing -->
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-tracing-bridge-otel</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.opentelemetry</groupId>
+            <artifactId>opentelemetry-exporter-otlp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.opentelemetry</groupId>
+            <artifactId>opentelemetry-sdk-extension-jaeger-remote-sampler</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.opentelemetry</groupId>
+            <artifactId>opentelemetry-sdk-extension-autoconfigure</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.opentelemetry.instrumentation</groupId>
+            <artifactId>opentelemetry-spring-webflux-5.3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>context-propagation</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+        <!-- For ObservationRegistryCustomizer -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-actuator-autoconfigure</artifactId>
+        </dependency>
     </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.opentelemetry</groupId>
+                <artifactId>opentelemetry-bom</artifactId>
+                <version>1.38.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.opentelemetry.instrumentation</groupId>
+                <artifactId>opentelemetry-instrumentation-bom-alpha</artifactId>
+                <version>2.4.0-alpha</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <build>
         <plugins>
             <plugin>
@@ -302,6 +361,30 @@
                 <version>6.6.0</version>
                 <executions>
                     <execution>
+                        <id>generate-openapi-html</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.basedir}/api/pms-api.json</inputSpec>
+                            <generatorName>html2</generatorName>
+                            <output>${project.basedir}/api/pms-api</output>
+                            <skipOperationExample>false</skipOperationExample>
+                            <strictSpec>false</strictSpec>
+                            <configOptions>
+                                <appDescription>The O-RAN Non-RT RIC A1 Policy Management Service
+                                    provides a REST API for managing O-RAN A1 Policies.</appDescription>
+                                <appName>ONAP CCSDK A1 Policy Management Service</appName>
+                                <infoUrl>https://wiki.onap.org/display/DW/O-RAN+A1+Policies+in+ONAP</infoUrl>
+                                <licenseInfo>Copyright (C) 2020-2023 Nordix Foundation. Licensed
+                                    under the Apache License, and Copyright (C) 2024 OpenInfra
+                                    Foundation Europe. All rights reserved.</licenseInfo>
+                                <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+                            </configOptions>
+                        </configuration>
+                    </execution>
+                    <execution>
                         <id>generate-openapi-policy-api</id>
                         <phase>generate-sources</phase>
                         <goals>
@@ -331,30 +414,35 @@
                         </configuration>
                     </execution>
                     <execution>
-                        <id>generate-openapi-html</id>
-                        <phase>prepare-package</phase>
+                        <id>generate-policy-api-v3</id>
+                        <phase>generate-sources	</phase>
                         <goals>
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>${project.basedir}/api/pms-api.json</inputSpec>
-                            <generatorName>html2</generatorName>
-                            <output>${project.basedir}/api/pms-api</output>
-                            <skipOperationExample>false</skipOperationExample>
-                            <strictSpec>false</strictSpec>
+                            <inputSpec>${project.basedir}/api/pms-api-v3.yaml</inputSpec>
+                            <invokerPackage>org.onap.ccsdk.oran.a1policymanagementservice.controllers.v3</invokerPackage>
+                            <apiPackage>org.onap.ccsdk.oran.a1policymanagementservice.controllers.api.v3</apiPackage>
+                            <modelPackage>org.onap.ccsdk.oran.a1policymanagementservice.models.v3</modelPackage>
+                            <generateApiTests>false</generateApiTests>
+                            <generateModelTests>false</generateModelTests>
+                            <generatorName>spring</generatorName>
+                            <generateSupportingFiles>false</generateSupportingFiles>
+                            <skipValidateSpec>false</skipValidateSpec>
+                            <library>spring-boot</library>
                             <configOptions>
-                                <appDescription>The O-RAN Non-RT RIC A1 Policy Management Service
-                                    provides a REST API for managing O-RAN A1 Policies.</appDescription>
-                                <appName>ONAP CCSDK A1 Policy Management Service</appName>
-                                <infoUrl>https://wiki.onap.org/display/DW/O-RAN+A1+Policies+in+ONAP</infoUrl>
-                                <licenseInfo>Copyright (C) 2020-2023 Nordix Foundation. Licensed
-                                    under the Apache License, and Copyright (C) 2024 OpenInfra
-                                    Foundation Europe. All rights reserved.</licenseInfo>
-                                <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+                                <interfaceOnly>true</interfaceOnly>
+                                <useTags>true</useTags>
+                                <reactive>true</reactive>
+                                <dateLibrary>java8</dateLibrary>
+                                <java8>true</java8>
+                                <unhandledException>true</unhandledException>
+                                <openApiNullable>false</openApiNullable>
+                                <skipDefaultInterface>true</skipDefaultInterface>
                             </configOptions>
                         </configuration>
                     </execution>
-                </executions>
+                 </executions>
             </plugin>
             <plugin>
                 <artifactId>maven-resources-plugin</artifactId>
@@ -392,6 +480,7 @@
                                     <includes>
                                         <include>pms-api.json</include>
                                         <include>pms-api.yaml</include>
+                                        <include>pms-api-v3.yaml</include>
                                     </includes>
                                     </resource>
                             </resources>
@@ -433,6 +522,7 @@
                                     <directory>${project.basedir}/api/pms-api</directory>
                                     <includes>
                                         <include>pms-api.html</include>
+                                        <include>index.html</include>
                                     </includes>
                                 </resource>
                             </resources>
