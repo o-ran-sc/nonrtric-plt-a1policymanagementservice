@@ -66,6 +66,9 @@ Version history A1 Policy Management Service (A1 Policy Agent)
 | 2023-12-14 | 2.7.0    | John Keeney      | I Release          |
 |            |          |                  |                    |
 +------------+----------+------------------+--------------------+
+| 2024-06-26 | 2.8.0    | John Keeney      | J Release          |
+|            |          |                  |                    |
++------------+----------+------------------+--------------------+
 
 Release Data
 ============
@@ -324,5 +327,28 @@ I Release
 |                             |   Numerous security/vulnerability/Stability updates    |
 |                             |   Updated to Open-API-first dev process                |
 |                             |   Better compliance with O-RAN A1-AP specifications    |
+|                             |                                                        |
++-----------------------------+--------------------------------------------------------+
+
+J Release
+---------
++-----------------------------+--------------------------------------------------------+
+| **Project**                 | Non-RT RIC A1 Policy Management Service                |
+|                             |                                                        |
++-----------------------------+--------------------------------------------------------+
+| **Repo/commit-ID**          | nonrtric/plt/a1policymanagementservice                 |
+|                             | 54d107f1dcf0f0d2a3a5a652ec467d15d1ec6520               |
+|                             |                                                        |
++-----------------------------+--------------------------------------------------------+
+| **Release designation**     | J                                                      |
+|                             |                                                        |
++-----------------------------+--------------------------------------------------------+
+| **Release date**            | 2024-06-26                                             |
+|                             |                                                        |
++-----------------------------+--------------------------------------------------------+
+| **Purpose of the delivery** | nonrtric-plt-a1policymanagementservice:2.8.0           |
+|                             |   Numerous security/vulnerability/Stability updates    |
+|                             |   Updated to NBI to R1-AP for A1 Pol. Man. (v. Mar'24) |
+|                             |   Added REST call tracing to north & south bound i/fs  |
 |                             |                                                        |
 +-----------------------------+--------------------------------------------------------+
