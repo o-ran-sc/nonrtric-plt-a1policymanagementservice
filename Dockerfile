@@ -45,6 +45,7 @@ EXPOSE 8081 8433
 WORKDIR /opt/app/policy-agent
 RUN mkdir -p /var/log/policy-agent
 RUN mkdir -p /opt/app/policy-agent/etc/cert/
+RUN mkdir -p /var/policy-management-service
 EXPOSE 8081 8433
 
 ADD /config/application.yaml /opt/app/policy-agent/config/application.yaml
@@ -59,6 +60,7 @@ RUN groupadd $user && \
     useradd -r -g $group $user
 RUN chown -R $user:$group /opt/app/policy-agent
 RUN chown -R $user:$group /var/log/policy-agent
+RUN chmod -R $user:$group /var/policy-management-service
 
 USER ${user}
 
