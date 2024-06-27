@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "969ce926_bf659acd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001877
+      },
+      "writtenOn": "2024-06-27T10:37:40Z",
+      "side": 1,
+      "message": "Please ensure that the helm charts are getting deployed properly. /var/policy-management-service is mounted as volume in the helm charts and some permission related handlings are there in the helm chart for application_configuration.json file in /var/policy-management-service directory.",
+      "revId": "e11a27b906d9423d3163bcf05744626d0ef6c490",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    }
+  ]
+}
