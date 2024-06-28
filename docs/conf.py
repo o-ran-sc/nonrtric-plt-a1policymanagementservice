@@ -20,7 +20,7 @@ from docs_conf.conf import *
 
 #branch configuration
 
-branch = 'latest'
+branch = 'j-release'
 onapbranch = 'latest'
 
 linkcheck_ignore = [
