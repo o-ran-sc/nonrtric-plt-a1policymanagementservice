@@ -4,7 +4,7 @@ container_release_tag: 2.8.0
 container_pull_registry: nexus3.o-ran-sc.org:10004
 container_push_registry: nexus3.o-ran-sc.org:10002
 project: nonrtric
-ref: 54d107f1dcf0f0d2a3a5a652ec467d15d1ec6520
+ref: 3c60dfc25d18918e401208aaaf9d51276cb5c3f4
 containers:
     - name: nonrtric-plt-a1policymanagementservice
       version: 2.8.0
