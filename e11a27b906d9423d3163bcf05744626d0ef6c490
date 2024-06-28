@@ -33,6 +33,24 @@
       "message": "See error in verify job: Docker Build is failing: \n\n[ERROR] Failed to execute goal io.fabric8:docker-maven-plugin:0.43.0:build (generate-a1policymanagementservice-image) on project a1policymanagementservice: Unable to build image [o-ran-sc/nonrtric-plt-a1policymanagementservice:2.8.0-SNAPSHOT] : \"The command \u0027/bin/sh -c chmod -R $user:$group /var/policy-management-service\u0027 returned a non-zero code: 1\"",
       "revId": "e11a27b906d9423d3163bcf05744626d0ef6c490",
       "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46e2090b_7dd228be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002240
+      },
+      "writtenOn": "2024-06-28T09:47:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "65d2369b_7795f625",
+      "revId": "e11a27b906d9423d3163bcf05744626d0ef6c490",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
     }
   ]
 }
