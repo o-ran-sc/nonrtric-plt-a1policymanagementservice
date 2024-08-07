@@ -55,10 +55,12 @@ ADD /config/keystore.jks /opt/app/policy-agent/etc/cert/keystore.jks
 ADD /config/truststore.jks /opt/app/policy-agent/etc/cert/truststore.jks
 
 ARG user=nonrtric
+ARG userid=1000
 ARG group=nonrtric
+ARG groupid=1000
 
-RUN groupadd $user && \
-    useradd -r -g $group $user
+RUN groupadd -g $groupid $group && \
+    useradd -m -u $userid -g $group -s /bin/bash $user
 RUN chown -R $user:$group /opt/app/policy-agent
 RUN chown -R $user:$group /var/log/policy-agent
 RUN chown -R $user:$group /var/policy-management-service
