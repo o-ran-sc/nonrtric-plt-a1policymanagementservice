@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1454fbd8_14412885",
+        "filename": "Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-08-08T15:09:54Z",
+      "side": 1,
+      "message": "suggest not using a \u0027nice\u0027 number like 1000\nmaybe 120957 - just a large random number? Much less chance of accidental clash of default uids then.",
+      "range": {
+        "startLine": 58,
+        "startChar": 11,
+        "endLine": 58,
+        "endChar": 15
+      },
+      "revId": "479d86074dc4049134e79a057f4c0b07cb7152a6",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    }
+  ]
+}
