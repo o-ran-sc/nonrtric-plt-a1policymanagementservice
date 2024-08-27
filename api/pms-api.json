@@ -1594,7 +1594,7 @@
         "description" : "Information about policy types"
       },
       "policy_info" : {
-        "required" : [ "policy_data", "policy_id", "policytype_id", "ric_id", "service_id" ],
+        "required" : [ "policy_data", "policy_id", "policytype_id", "ric_id" ],
         "type" : "object",
         "properties" : {
           "ric_id" : {
@@ -1614,7 +1614,8 @@
           },
           "service_id" : {
             "type" : "string",
-            "description" : "the identity of the service owning the policy. This can be used to group the policies (it is possible to get all policies associated to a service). Note that the service does not need to be registered."
+            "description" : "the identity of the service owning the policy. This can be used to group the policies (it is possible to get all policies associated to a service). Note that the service does not need to be registered.",
+            "default" : ""
           },
           "policy_data" : {
             "type" : "object",
