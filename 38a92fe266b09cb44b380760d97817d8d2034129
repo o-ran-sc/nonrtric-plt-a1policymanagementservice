@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e44bb2c4_c2bcdd4c",
+        "filename": "pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-09-16T08:54:35Z",
+      "side": 1,
+      "message": "Can set verion \u003d 3.4.0 until maven version is updated.",
+      "range": {
+        "startLine": 308,
+        "startChar": 16,
+        "endLine": 308,
+        "endChar": 66
+      },
+      "revId": "38a92fe266b09cb44b380760d97817d8d2034129",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    }
+  ]
+}
