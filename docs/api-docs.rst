@@ -14,4 +14,5 @@ To view the Open API specification for A1 PMS, please see the following.
 
     <ul>
     <li><a href="./pms-api.html">A1 Policy Management Service API and SDK Documentation</a></li>
+    <li><a href="./v3/index.html">A1 Policy Management Service API version 3 and SDK Documentation</a></li>
     </ul>
