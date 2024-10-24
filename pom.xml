@@ -28,7 +28,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.3.2</version>
-        <relativePath />
+        <relativePath/>
     </parent>
     <groupId>org.o-ran-sc.nonrtric.plt</groupId>
     <artifactId>a1policymanagementservice</artifactId>
@@ -48,10 +48,10 @@
     </repositories>
     <properties>
         <java.version>17</java.version>
-        <software.amazon.awssdk.version>2.20.12</software.amazon.awssdk.version>
-        <json.version>20231013</json.version>
-        <commons-io.version>2.14.0</commons-io.version>
-        <guava.version>32.0.1-jre</guava.version>
+        <software.amazon.awssdk.version>2.27.8</software.amazon.awssdk.version>
+        <json.version>20240303</json.version>
+        <commons-io.version>2.16.1</commons-io.version>
+        <guava.version>33.3.0-jre</guava.version>
         <surefire-maven-plugin.version>3.0.0-M8</surefire-maven-plugin.version>
         <surefire-report-plugin.version>3.0.0-M8</surefire-report-plugin.version>
         <maven-compiler-plugin.version>3.10.0</maven-compiler-plugin.version>
@@ -61,27 +61,41 @@
         <exec-maven-plugin.version>3.1.0</exec-maven-plugin.version>
         <localstack.version>1.20.1</localstack.version>
         <junit.jupiter.version>1.20.1</junit.jupiter.version>
+        <gson.version>2.10.1</gson.version>
+        <javax.annotation-api.version>1.3.2</javax.annotation-api.version>
+        <everit-json-schema.version>1.14.4</everit-json-schema.version>
+        <jackson-databind-nullable.version>0.2.6</jackson-databind-nullable.version>
+        <validation-api.version>2.0.1.Final</validation-api.version>
+        <swagger-annotations.version>2.2.15</swagger-annotations.version>
+        <spring-boot-actuator-autoconfigure.version>3.3.2</spring-boot-actuator-autoconfigure.version>
+        <formatter-maven-plugin.version>2.22.0</formatter-maven-plugin.version>
+        <spotless-maven-plugin.version>2.35.0</spotless-maven-plugin.version>
+        <springdoc.version>2.0.2</springdoc.version>
+        <docker-maven-plugin>0.30.0</docker-maven-plugin>
+        <ccsdk.project.version>${project.version}</ccsdk.project.version>
+        <mapstruct.version>1.6.0</mapstruct.version>
+        <allowskiptests>false</allowskiptests>
     </properties>
     <dependencies>
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
-            <version>2.0.1.Final</version>
+            <version>${validation-api.version}</version>
         </dependency>
         <dependency>
             <groupId>javax.annotation</groupId>
             <artifactId>javax.annotation-api</artifactId>
-            <version>1.3.2</version>
+            <version>${javax.annotation-api.version}</version>
         </dependency>
         <dependency>
             <groupId>io.swagger.core.v3</groupId>
             <artifactId>swagger-annotations</artifactId>
-            <version>2.2.15</version>
+            <version>${swagger-annotations.version}</version>
         </dependency>
         <dependency>
             <groupId>org.openapitools</groupId>
             <artifactId>jackson-databind-nullable</artifactId>
-            <version>0.2.4</version>
+            <version>${jackson-databind-nullable.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -130,12 +144,12 @@
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
-            <version>1.5.5.Final</version>
+            <version>${mapstruct.version}</version>
         </dependency>
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct-processor</artifactId>
-            <version>1.5.5.Final</version>
+            <version>${mapstruct.version}</version>
         </dependency>
         <!-- Actuator dependencies -->
         <dependency>
@@ -225,7 +239,7 @@
         <dependency>
             <groupId>com.github.erosb</groupId>
             <artifactId>everit-json-schema</artifactId>
-            <version>1.14.0</version>
+            <version>${everit-json-schema.version}</version>
         </dependency>
         <!-- For Tracing -->
         <dependency>
@@ -248,6 +262,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-actuator-autoconfigure</artifactId>
+            <version>3.3.0</version>
         </dependency>
     </dependencies>
     <dependencyManagement>
@@ -255,14 +270,14 @@
             <dependency>
                 <groupId>io.opentelemetry</groupId>
                 <artifactId>opentelemetry-bom</artifactId>
-                <version>1.38.0</version>
+                <version>1.41.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>io.opentelemetry.instrumentation</groupId>
                 <artifactId>opentelemetry-instrumentation-bom-alpha</artifactId>
-                <version>2.4.0-alpha</version>
+                <version>2.7.0-alpha</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -279,7 +294,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${surefire-maven-plugin.version}</version>
                 <configuration>
-                    <skipTests>false</skipTests>
+                    <skipTests>${allowskiptests}</skipTests>
                 </configuration>
             </plugin>
             <plugin>
@@ -350,9 +365,9 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>${project.basedir}/api/pms-api.yaml</inputSpec>
+                            <inputSpec>${project.basedir}/api/offeredapis/swagger/pms-api.yaml</inputSpec>
                             <generatorName>openapi</generatorName>
-                            <output>${project.basedir}/api</output>
+                            <output>${project.basedir}/api/offeredapis/swagger</output>
                             <configOptions>
                                 <outputFileName>pms-api.json</outputFileName>
                             </configOptions>
@@ -365,9 +380,9 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>${project.basedir}/api/pms-api-v3.yaml</inputSpec>
+                            <inputSpec>${project.basedir}/api/offeredapis/swagger/pms-api-v3.yaml</inputSpec>
                             <generatorName>openapi</generatorName>
-                            <output>${project.basedir}/api</output>
+                            <output>${project.basedir}/api/offeredapis/swagger</output>
                             <configOptions>
                                 <outputFileName>pms-api-v3.json</outputFileName>
                             </configOptions>
@@ -380,10 +395,10 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>${project.basedir}/api/pms-api-v3.yaml</inputSpec>
+                            <inputSpec>${project.basedir}/api/offeredapis/swagger/pms-api-v3.yaml</inputSpec>
                             <generatorName>openapi</generatorName>
                             <apisToGenerate>A1PolicyManagement</apisToGenerate>
-                            <output>${project.basedir}/api</output>
+                            <output>${project.basedir}/api/offeredapis/swagger</output>
                             <configOptions>
                                 <outputFileName>a1pms-api-v3.json</outputFileName>
                             </configOptions>
@@ -396,9 +411,9 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>${project.basedir}/api/pms-api.json</inputSpec>
+                            <inputSpec>${project.basedir}/api/offeredapis/swagger/pms-api.json</inputSpec>
                             <generatorName>html2</generatorName>
-                            <output>${project.basedir}/api/pms-api</output>
+                            <output>${project.basedir}/api/offeredapis/openapitoolgen/offeredapis/pms-api</output>
                             <skipOperationExample>false</skipOperationExample>
                             <strictSpec>false</strictSpec>
                             <configOptions>
@@ -407,8 +422,7 @@
                                 <appName>ONAP CCSDK A1 Policy Management Service</appName>
                                 <infoUrl>https://wiki.onap.org/display/DW/O-RAN+A1+Policies+in+ONAP</infoUrl>
                                 <licenseInfo>Copyright (C) 2020-2023 Nordix Foundation. Licensed
-                                    under the Apache License, and Copyright (C) 2024 OpenInfra
-                                    Foundation Europe. All rights reserved.</licenseInfo>
+                                    under the Apache License, and Copyright (C) 2024 OpenInfra Foundation Europe. All rights reserved.</licenseInfo>
                                 <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
                             </configOptions>
                         </configuration>
@@ -420,9 +434,9 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>${project.basedir}/api/pms-api-v3.json</inputSpec>
+                            <inputSpec>${project.basedir}/api/offeredapis/swagger/pms-api-v3.json</inputSpec>
                             <generatorName>html2</generatorName>
-                            <output>${project.basedir}/api/pms-api/v3</output>
+                            <output>${project.basedir}/api/offeredapis/openapitoolgen/offeredapis/pms-api/v3</output>
                             <skipOperationExample>false</skipOperationExample>
                             <strictSpec>false</strictSpec>
                             <configOptions>
@@ -430,8 +444,7 @@
                                     provides a REST API for managing O-RAN A1 Policies.</appDescription>
                                 <appName>ONAP CCSDK A1 Policy Management Service</appName>
                                 <infoUrl>https://wiki.onap.org/display/DW/O-RAN+A1+Policies+in+ONAP</infoUrl>
-                                <licenseInfo>Copyright (C) 2024 OpenInfra
-                                    Foundation Europe. All rights reserved.</licenseInfo>
+                                <licenseInfo>Copyright (C) 2024 OpenInfra Foundation Europe. All rights reserved.</licenseInfo>
                                 <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
                             </configOptions>
                         </configuration>
@@ -443,9 +456,9 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>${project.basedir}/api/pms-api-v3.json</inputSpec>
+                            <inputSpec>${project.basedir}/api/offeredapis/swagger/pms-api-v3.json</inputSpec>
                             <generatorName>html2</generatorName>
-                            <output>${project.basedir}/api/pms-api/v3/custom</output>
+                            <output>${project.basedir}/api/offeredapis/openapitoolgen/offeredapis/pms-api/v3/custom</output>
                             <skipOperationExample>false</skipOperationExample>
                             <strictSpec>false</strictSpec>
                             <apisToGenerate>A1PolicyManagement</apisToGenerate>
@@ -454,21 +467,20 @@
                                     provides a REST API for managing O-RAN A1 Policies.</appDescription>
                                 <appName>ONAP CCSDK A1 Policy Management Service</appName>
                                 <infoUrl>https://wiki.onap.org/display/DW/O-RAN+A1+Policies+in+ONAP</infoUrl>
-                                <licenseInfo>Copyright (C) 2024 OpenInfra
-                                    Foundation Europe. All rights reserved.</licenseInfo>
+                                <licenseInfo>Copyright (C) 2024 OpenInfra Foundation Europe. All rights reserved.</licenseInfo>
                                 <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
                             </configOptions>
                         </configuration>
                     </execution>
                     <execution>
-                        <id>generate-openapi-policy-api</id>
-                        <phase>generate-sources</phase>
+                        <id>generate-policy-api</id>
+                        <phase>generate-sources	</phase>
                         <goals>
                             <goal>generate</goal>
                         </goals>
                         <configuration>
                             <generatorName>spring</generatorName>
-                            <inputSpec>${project.basedir}/api/pms-api.yaml</inputSpec>
+                            <inputSpec>${project.basedir}/api/offeredapis/swagger/pms-api.yaml</inputSpec>
                             <library>spring-boot</library>
                             <invokerPackage>org.onap.ccsdk.oran.a1policymanagementservice.controllers.v2</invokerPackage>
                             <apiPackage>org.onap.ccsdk.oran.a1policymanagementservice.controllers.api.v2</apiPackage>
@@ -478,6 +490,7 @@
                             <generateSupportingFiles>false</generateSupportingFiles>
                             <skipValidateSpec>false</skipValidateSpec>
                             <configOptions>
+                                <sourceFolder>src/gen/java</sourceFolder>
                                 <interfaceOnly>true</interfaceOnly>
                                 <useTags>true</useTags>
                                 <reactive>true</reactive>
@@ -496,7 +509,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>${project.basedir}/api/pms-api-v3.yaml</inputSpec>
+                            <inputSpec>${project.basedir}/api/offeredapis/swagger/pms-api-v3.yaml</inputSpec>
                             <invokerPackage>org.onap.ccsdk.oran.a1policymanagementservice.controllers.v3</invokerPackage>
                             <apiPackage>org.onap.ccsdk.oran.a1policymanagementservice.controllers.api.v3</apiPackage>
                             <modelPackage>org.onap.ccsdk.oran.a1policymanagementservice.models.v3</modelPackage>
@@ -507,6 +520,7 @@
                             <skipValidateSpec>false</skipValidateSpec>
                             <library>spring-boot</library>
                             <configOptions>
+                                <sourceFolder>src/gen/java</sourceFolder>
                                 <interfaceOnly>true</interfaceOnly>
                                 <useTags>true</useTags>
                                 <reactive>true</reactive>
@@ -541,74 +555,26 @@
                         </configuration>
                     </execution>
                     <execution>
-                        <id>copy-resource-openapi-files-fromsubmodule</id>
-                        <phase>initialize</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <verbose>true</verbose>
-                            <overwrite>true</overwrite>
-                            <outputDirectory>${project.basedir}/api</outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>${project.basedir}/onap/oran/a1-policy-management/api</directory>
-                                    <includes>
-                                        <include>pms-api.json</include>
-                                        <include>pms-api.yaml</include>
-                                        <include>pms-api-v3.json</include>
-                                        <include>pms-api-v3.yaml</include>
-                                        <include>a1pms-api-v3.json</include>
-                                        <include>api/pms-api/index.html</include>
-                                        <include>api/pms-api/v3/index.html</include>
-                                        <include>api/pms-api/v3/custom/index.html</include>
-                                    </includes>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>copy-resource-doc-openapi</id>
+                        <id>copy-resource-openapi</id>
                         <phase>package</phase>
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.basedir}/docs/offeredapis/swagger</outputDirectory>
+                            <outputDirectory>${project.basedir}/../docs/offeredapis</outputDirectory>
                             <overwrite>true</overwrite>
-                            <verbose>true</verbose>
                             <resources>
                                 <resource>
-                                    <directory>${project.basedir}/api</directory>
+                                    <directory>${project.basedir}/api/offeredapis</directory>
                                     <includes>
-                                        <include>pms-api.json</include>
-                                        <include>pms-api.yaml</include>
-                                        <include>pms-api-v3.json</include>
-                                        <include>pms-api-v3.yaml</include>
-                                        <include>a1pms-api-v3.json</include>
-                                    </includes>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>copy-resource-openapi-html</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <verbose>true</verbose>
-                            <outputDirectory>
-                                ${project.basedir}/docs/offeredapis/openapitoolgen/offeredapis/pms-api</outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>${project.basedir}/api/pms-api</directory>
-                                    <includes>
-                                        <include>pms-api.html</include>
-                                        <include>index.html</include>
-                                        <include>v3/index.html</include>
-                                        <include>v3/custom/index.html</include>
+                                        <include>swagger/pms-api.json</include>
+                                        <include>swagger/pms-api.yaml</include>
+                                        <include>swagger/pms-api-v3.json</include>
+                                        <include>swagger/pms-api-v3.yaml</include>
+                                        <include>swagger/a1pms-api-v3.json</include>
+                                        <include>openapitoolgen/offeredapis/pms-api/index.html</include>
+                                        <include>openapitoolgen/offeredapis/pms-api/v3/index.html</include>
+                                        <include>openapitoolgen/offeredapis/pms-api/v3/custom/index.html</include>
                                     </includes>
                                 </resource>
                             </resources>
