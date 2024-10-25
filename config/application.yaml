@@ -61,19 +61,19 @@ logging:
   file:
     name: /var/log/policy-agent/application.log
 server:
-   # Configuration of the HTTP/REST server. The parameters are defined and handeled by the springboot framework.
-   # See springboot documentation.
-   port : 8433
-   http-port: 8081
-   shutdown: "graceful"
-   ssl:
-      key-store-type: JKS
-      key-store-password: policy_agent
+  # Configuration of the HTTP/REST server. The parameters are defined and handeled by the springboot framework.
+  # See springboot documentation.
+  port : 8433
+  http-port: 8081
+  shutdown: "graceful"
+  ssl:
+    key-store-type: JKS
+    key-store-password: policy_agent
       key-store: /opt/app/policy-agent/etc/cert/keystore.jks
-      key-password: policy_agent
-      key-alias: policy_agent
-      # trust-store-password:
-      # trust-store:
+    key-password: policy_agent
+    key-alias: policy_agent
+    # trust-store-password:
+    # trust-store:
 app:
   # Location of the component configuration file.
   filepath: /opt/app/policy-agent/data/application_configuration.json
