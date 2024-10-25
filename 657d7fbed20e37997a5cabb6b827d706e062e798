@@ -24,6 +24,30 @@
       "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "30503616_c12c687d",
+        "filename": "pom.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1002240
+      },
+      "writtenOn": "2024-10-25T13:23:05Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "836512c9_9716ef06",
+      "range": {
+        "startLine": 467,
+        "startChar": 45,
+        "endLine": 467,
+        "endChar": 67
+      },
+      "revId": "657d7fbed20e37997a5cabb6b827d706e062e798",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d4ac472_fd27d1ef",
@@ -47,6 +71,30 @@
       "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7e6e6d7_e5bbd630",
+        "filename": "pom.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1002240
+      },
+      "writtenOn": "2024-10-25T13:23:05Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "1d4ac472_fd27d1ef",
+      "range": {
+        "startLine": 474,
+        "startChar": 49,
+        "endLine": 474,
+        "endChar": 64
+      },
+      "revId": "657d7fbed20e37997a5cabb6b827d706e062e798",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e03d2c63_3f72f76c",
@@ -60,6 +108,30 @@
       "writtenOn": "2024-10-25T10:57:30Z",
       "side": 0,
       "message": "I think we should keep this - to make sure the \u0027latest\u0027 version from ONAP is always copied to ${project.basedir}/api/offeredapis/swagger directory.\nAnd, the json files will be regenerated anyway, but best to have them copied over anyway.\nIn this way any change in ONAP will trigger a full update of the checked in files: \n${project.basedir}/api/offeredapis/swagger/pms-api.yaml\n${project.basedir}/api/offeredapis/swagger/pms-api.json\n${project.basedir}/api/offeredapis/swagger/pms-api-v3.yaml\n${project.basedir}/api/offeredapis/swagger/pms-api-v3.json",
+      "range": {
+        "startLine": 460,
+        "startChar": 10,
+        "endLine": 478,
+        "endChar": 40
+      },
+      "revId": "657d7fbed20e37997a5cabb6b827d706e062e798",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17f30986_b87dbafd",
+        "filename": "pom.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1002240
+      },
+      "writtenOn": "2024-10-25T13:23:05Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "e03d2c63_3f72f76c",
       "range": {
         "startLine": 460,
         "startChar": 10,
