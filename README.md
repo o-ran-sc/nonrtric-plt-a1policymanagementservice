@@ -66,7 +66,7 @@ docker run -p 8081:8081 -p 8433:8433 --name=policy-agent-container --network=non
   --volume "$PWD/new_keystore.jks:/opt/app/policy-agent/etc/cert/keystore.jks" \
   --volume "$PWD/new_truststore.jks:/opt/app/policy-agent/etc/cert/truststore.jks" \
   --volume "$PWD/new_application.yaml:/opt/app/policy-agent/config/application.yaml" \
-  nexus3.o-ran-sc.org:10002/o-ran-sc/nonrtric-plt-a1policymanagementservice:2.8.0
+  nexus3.o-ran-sc.org:10002/o-ran-sc/nonrtric-plt-a1policymanagementservice:2.8.1
 ```
 
 ### Running Policy Agent Locally
