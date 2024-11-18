@@ -45,7 +45,7 @@ The service provides :
     * Fine-grained access-control - with new optional callouts to an external auth function
     * Fine-grained monitoring metrics, logging & call tracing can be configured
 
-See also A1 Policy Management Service in ONAP: `Wiki <https://wiki.onap.org/display/DW/O-RAN+A1+Policies+in+ONAP>`_, :doc:`Documentation<onapa1policymanagementservice:index>`.
+See also A1 Policy Management Service in ONAP: `Wiki <https://lf-onap.atlassian.net/wiki/spaces/DW/pages/16444961/O-RAN+A1+Policies+in+ONAP>`_, :doc:`Documentation<onapa1policymanagementservice:index>`.
 
 Implementation:
 
