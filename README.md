@@ -5,7 +5,7 @@ For detailed API documentation and further information, refer to the NONRTRIC do
 For additional detailed documentation, also refer to the NONRTRIC documentation at [A1 Policy Management Service Documentation site](https://docs.o-ran-sc.org/projects/o-ran-sc-nonrtric-plt-a1policymanagementservice).
 
 The A1 Policy Management Service is homed in ONAP. For additional documentation see [ONAP CCSDK documentation](https://docs.onap.org/projects/onap-ccsdk-oran).
-and [wiki](https://wiki.onap.org/display/DW/O-RAN+A1+Policies+in+ONAP).
+and [wiki](https://lf-onap.atlassian.net/wiki/spaces/DW/pages/16444961/O-RAN+A1+Policies+in+ONAP).
 
 ## Features
 

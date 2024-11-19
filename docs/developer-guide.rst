@@ -11,7 +11,7 @@ This document provides a quickstart for developers of the Non-RT RIC A1 Policy M
 
 The A1 Policy Management Service is implemented in ONAP. For additional documentation 
 see `ONAP CCSDK documentation <https://docs.onap.org/projects/onap-ccsdk-oran>`_.
-and `wiki <https://wiki.onap.org/display/DW/O-RAN+A1+Policies+in+ONAP>`_.
+and `wiki <https://lf-onap.atlassian.net/wiki/spaces/DW/pages/16444961/O-RAN+A1+Policies+in+ONAP>`_.
 
 Docker & Kubernetes deployment
 ==============================
