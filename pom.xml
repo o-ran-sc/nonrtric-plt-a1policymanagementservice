@@ -436,7 +436,7 @@
                             <skipOperationExample>false</skipOperationExample>
                             <strictSpec>false</strictSpec>
                             <configOptions>
-                                <appDescription>The O-RAN Non-RT RIC A1 Policy Management Service
+                                <appDescription>The O-RAN NON-RT RIC A1 Policy Management Service
                                     provides a REST API for managing O-RAN A1 Policies.</appDescription>
                                 <appName>ONAP CCSDK A1 Policy Management Service</appName>
                                 <infoUrl>https://lf-onap.atlassian.net/wiki/spaces/DW/pages/16444961/O-RAN+A1+Policies+in+ONAP</infoUrl>
