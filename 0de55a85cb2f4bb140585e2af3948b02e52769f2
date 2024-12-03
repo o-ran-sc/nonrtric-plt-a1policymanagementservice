@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c878fc8_fd15ceaf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002433
+      },
+      "writtenOn": "2024-12-03T17:00:39Z",
+      "side": 1,
+      "message": "revert to patchset1, it worked on \nhttps://jenkins.o-ran-sc.org/sandbox/view/All/job/nonrtric-plt-a1policymanagementservice-maven-docker-verify-master-mvn39-openjdk17/4/jacoco/",
+      "revId": "0de55a85cb2f4bb140585e2af3948b02e52769f2",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    }
+  ]
+}
