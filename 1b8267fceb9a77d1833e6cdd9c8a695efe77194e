@@ -16,6 +16,23 @@
       "message": "jjb-deploy *.plt-a1policymanagementservice-maven-docker-verify-master-mvn39-openjdk17",
       "revId": "1b8267fceb9a77d1833e6cdd9c8a695efe77194e",
       "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1f01538_72dd5655",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002240
+      },
+      "writtenOn": "2024-12-04T06:46:48Z",
+      "side": 1,
+      "message": "jjb-deploy *plt-a1policymanagementservice-maven-docker-verify-master-mvn39-openjdk17",
+      "revId": "1b8267fceb9a77d1833e6cdd9c8a695efe77194e",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
     }
   ]
 }
