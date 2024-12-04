@@ -71,6 +71,7 @@
         <formatter-maven-plugin.version>2.22.0</formatter-maven-plugin.version>
         <spotless-maven-plugin.version>2.35.0</spotless-maven-plugin.version>
         <springdoc.version>2.0.2</springdoc.version>
+        <sonar.scm.exclusions.disabled>true</sonar.scm.exclusions.disabled>
         <docker-maven-plugin>0.30.0</docker-maven-plugin>
         <ccsdk.project.version>${project.version}</ccsdk.project.version>
         <mapstruct.version>1.6.0</mapstruct.version>
