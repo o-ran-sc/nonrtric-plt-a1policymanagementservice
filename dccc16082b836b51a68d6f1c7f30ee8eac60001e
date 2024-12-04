@@ -16,6 +16,23 @@
       "message": "Verified manually. Report not showing here, but the jenkins job did run.",
       "revId": "dccc16082b836b51a68d6f1c7f30ee8eac60001e",
       "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a7d4dc6_8cd21d23",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-12-04T11:11:15Z",
+      "side": 1,
+      "message": "run-sonar",
+      "revId": "dccc16082b836b51a68d6f1c7f30ee8eac60001e",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
     }
   ],
   "submitRequirementResults": [
