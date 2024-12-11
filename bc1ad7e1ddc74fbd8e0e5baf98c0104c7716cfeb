@@ -16,6 +16,23 @@
       "message": "recheck",
       "revId": "bc1ad7e1ddc74fbd8e0e5baf98c0104c7716cfeb",
       "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "140819ce_12d45918",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-12-11T12:23:07Z",
+      "side": 1,
+      "message": "Function- \u0026 Integration-Tests run locally are all fine.",
+      "revId": "bc1ad7e1ddc74fbd8e0e5baf98c0104c7716cfeb",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
     }
   ]
 }
