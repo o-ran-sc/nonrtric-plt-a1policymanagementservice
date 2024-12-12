@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fb77ffc_0b8e2d0e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-12-12T18:25:18Z",
+      "side": 1,
+      "message": "Verified: Job: \nhttps://jenkins.o-ran-sc.org/view/nonrtric-plt-a1policymanagementservice/job/nonrtric-plt-a1policymanagementservice-maven-docker-verify-master-mvn39-openjdk17/39/",
+      "revId": "aeef8639713a524da96dd18f895d2883bd058ead",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    }
+  ]
+}
