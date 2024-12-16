@@ -16,6 +16,23 @@
       "message": "https://jenkins.o-ran-sc.org/view/rtdv3-global/job/rtdv3-global-verify-master/3679/ \nhttps://jenkins.o-ran-sc.org/view/nonrtric-plt-a1policymanagementservice/job/nonrtric-plt-a1policymanagementservice-maven-docker-verify-master-mvn39-openjdk17/40/",
       "revId": "bd6d6ac97f519c1da399aa6d873aa759d01aca72",
       "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69f28d5a_1dcef092",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-12-16T16:11:55Z",
+      "side": 1,
+      "message": "stage-release",
+      "revId": "bd6d6ac97f519c1da399aa6d873aa759d01aca72",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
     }
   ],
   "submitRequirementResults": [
