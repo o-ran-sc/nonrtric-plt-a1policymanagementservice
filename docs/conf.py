@@ -32,7 +32,7 @@ linkcheck_ignore = [
 extensions = ['sphinx.ext.intersphinx',]
 
 html_extra_path = [
-    'offeredapis/openapitoolgen/offeredapis/pms-api'
+    'offeredapis/openapitoolgen'
 ]
 
 #intershpinx mapping with other projects
