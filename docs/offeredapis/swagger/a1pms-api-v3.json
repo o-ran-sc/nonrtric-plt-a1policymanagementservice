@@ -19,8 +19,8 @@
     "url" : "{apiRoot}/a1-policy-management/v1",
     "variables" : {
       "apiRoot" : {
-        "default" : "https://a1-pms.com",
-        "description" : "apiRoot is the Host:port/Domain name of the service  where the A1Pms running"
+        "default" : "https://example.com",
+        "description" : "This is the Host:Port or Address where the A1-Policy Management Service can be accessed"
       }
     }
   } ],

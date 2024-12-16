@@ -28,7 +28,8 @@ build:
     python: "3.11"
   jobs:
     post_build:
-      - cp -v docs/offeredapis/openapitoolgen/offeredapis/pms-api/pms-api.html $READTHEDOCS_OUTPUT/html
+      - cp -v docs/offeredapis/openapitoolgen/offeredapis/pms-api/index.html $READTHEDOCS_OUTPUT/html
+      - cp -v docs/offeredapis/openapitoolgen/offeredapis/pms-api/v3/index.html $READTHEDOCS_OUTPUT/html
 
 python:
   install:

@@ -1255,7 +1255,7 @@ ul.nav-tabs {
                             <pre class="prettyprint"><code class="language-bsh">curl -X POST \
  -H "Accept: application/json,application/problem+json" \
  -H "Content-Type: application/json" \
- "https://a1-pms.com/a1-policy-management/v1/policies" \
+ "https://example.com/a1-policy-management/v1/policies" \
  -d '{
   &quot;policyId&quot; : &quot;POLICY-ID&quot;,
   &quot;nearRtRicId&quot; : &quot;Near-RT-Ric-ID&quot;,
@@ -2442,7 +2442,7 @@ $(document).ready(function() {
                           <div class="tab-pane active" id="examples-A1PolicyManagement-deletePolicy-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X DELETE \
  -H "Accept: application/problem+json" \
- "https://a1-pms.com/a1-policy-management/v1/policies/{policyId}"
+ "https://example.com/a1-policy-management/v1/policies/{policyId}"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-A1PolicyManagement-deletePolicy-0-java">
@@ -3516,7 +3516,7 @@ Specifies the content type that the client expects to receive in response to the
                           <div class="tab-pane active" id="examples-A1PolicyManagement-getAllPolicies-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: application/json,application/problem+json" \
- "https://a1-pms.com/a1-policy-management/v1/policies?policyTypeId=policyTypeId_example&nearRtRicId=nearRtRicId_example&serviceId=serviceId_example&typeName=typeName_example"
+ "https://example.com/a1-policy-management/v1/policies?policyTypeId=policyTypeId_example&nearRtRicId=nearRtRicId_example&serviceId=serviceId_example&typeName=typeName_example"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-A1PolicyManagement-getAllPolicies-0-java">
@@ -4702,7 +4702,7 @@ Select policies of types with the given type name (type identity has the format 
                           <div class="tab-pane active" id="examples-A1PolicyManagement-getPolicy-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: application/json,application/problem+json" \
- "https://a1-pms.com/a1-policy-management/v1/policies/{policyId}"
+ "https://example.com/a1-policy-management/v1/policies/{policyId}"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-A1PolicyManagement-getPolicy-0-java">
@@ -5794,7 +5794,7 @@ Specifies the content type that the client expects to receive in response to the
                           <div class="tab-pane active" id="examples-A1PolicyManagement-getPolicyTypeDefinition-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: application/json,application/problem+json" \
- "https://a1-pms.com/a1-policy-management/v1/policy-types/{policyTypeId}"
+ "https://example.com/a1-policy-management/v1/policy-types/{policyTypeId}"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-A1PolicyManagement-getPolicyTypeDefinition-0-java">
@@ -6886,7 +6886,7 @@ Specifies the content type that the client expects to receive in response to the
                           <div class="tab-pane active" id="examples-A1PolicyManagement-getPolicyTypes-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: application/json,application/problem+json" \
- "https://a1-pms.com/a1-policy-management/v1/policy-types?nearRtRicId=nearRtRicId_example&typeName=typeName_example&compatibleWithVersion=compatibleWithVersion_example"
+ "https://example.com/a1-policy-management/v1/policy-types?nearRtRicId=nearRtRicId_example&typeName=typeName_example&compatibleWithVersion=compatibleWithVersion_example"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-A1PolicyManagement-getPolicyTypes-0-java">
@@ -8039,7 +8039,7 @@ Select types that are compatible with the given version. This parameter is only 
                             <pre class="prettyprint"><code class="language-bsh">curl -X PUT \
  -H "Accept: application/json,application/problem+json" \
  -H "Content-Type: application/json" \
- "https://a1-pms.com/a1-policy-management/v1/policies/{policyId}" \
+ "https://example.com/a1-policy-management/v1/policies/{policyId}" \
  -d ''
 </code></pre>
                           </div>
