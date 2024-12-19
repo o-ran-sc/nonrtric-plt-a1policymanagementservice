@@ -69,6 +69,9 @@ Version history A1 Policy Management Service (A1 Policy Agent)
 | 2024-06-26 | 2.8.0    | John Keeney      | J Release          |
 |            |          |                  |                    |
 +------------+----------+------------------+--------------------+
+| 2024-12-19 | 2.9.0    | John Keeney      | K Release          |
+|            |          |                  |                    |
++------------+----------+------------------+--------------------+
 
 Release Data
 ============
@@ -350,5 +353,27 @@ J Release
 |                             |   Numerous security/vulnerability/Stability updates    |
 |                             |   Updated to NBI to R1-AP for A1 Pol. Man. (v. Mar'24) |
 |                             |   Added REST call tracing to north & south bound i/fs  |
+|                             |                                                        |
++-----------------------------+--------------------------------------------------------+
+
+K Release
+---------
++-----------------------------+--------------------------------------------------------+
+| **Project**                 | Non-RT RIC A1 Policy Management Service                |
+|                             |                                                        |
++-----------------------------+--------------------------------------------------------+
+| **Repo/commit-ID**          | nonrtric/plt/a1policymanagementservice                 |
+|                             | 281562aab3e1b4e4065863c769ce0a6522f5e5aa               |
+|                             |                                                        |
++-----------------------------+--------------------------------------------------------+
+| **Release designation**     | J                                                      |
+|                             |                                                        |
++-----------------------------+--------------------------------------------------------+
+| **Release date**            | 2024-12-19                                             |
+|                             |                                                        |
++-----------------------------+--------------------------------------------------------+
+| **Purpose of the delivery** | nonrtric-plt-a1policymanagementservice:2.9.0           |
+|                             |   Numerous security/vulnerability/Stability updates    |
+|                             |   Updated to ONAP Oslo version (v. Dec'24)             |
 |                             |                                                        |
 +-----------------------------+--------------------------------------------------------+
