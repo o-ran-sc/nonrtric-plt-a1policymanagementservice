@@ -1,7 +1,7 @@
 # O-RAN-SC Non-RT RIC A1 Policy Management Service
 
 The O-RAN-SC A1 Policy Management Service provides a REST API for the management of policies within the O-RAN architecture. This README provides details on the features, configuration, and running instructions for the A1 Policy Management Service.
-For detailed API documentation and further information, refer to the NONRTRIC documentation at [NONRTRIC Wiki](https://wiki.o-ran-sc.org/display/RICNR).
+For detailed API documentation and further information, refer to the NONRTRIC documentation at [NONRTRIC Wiki](https://lf-o-ran-sc.atlassian.net/wiki/spaces/RICNR/overview).
 For additional detailed documentation, also refer to the NONRTRIC documentation at [A1 Policy Management Service Documentation site](https://docs.o-ran-sc.org/projects/o-ran-sc-nonrtric-plt-a1policymanagementservice).
 
 The A1 Policy Management Service is homed in ONAP. For additional documentation see [ONAP CCSDK documentation](https://docs.onap.org/projects/onap-ccsdk-oran).
