@@ -18,8 +18,9 @@
 # SPDX-License-Identifier: Apache-2.0
 # ============LICENSE_END=========================================================
 #
-FROM openjdk:17-jdk as jre-build
+FROM amazoncorretto:17-alpine as jre-build
 
+RUN apk add binutils
 RUN $JAVA_HOME/bin/jlink \
 --verbose \
 --add-modules ALL-MODULE-PATH \
@@ -30,7 +31,7 @@ RUN $JAVA_HOME/bin/jlink \
 --output /customjre
 
 # Use debian base image (same as openjdk uses)
-FROM debian:11-slim
+FROM amazoncorretto:17-alpine
 
 ENV JAVA_HOME=/jre
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
@@ -59,8 +60,8 @@ ARG userid=120957
 ARG group=nonrtric
 ARG groupid=120957
 
-RUN groupadd -g $groupid $group && \
-    useradd -m -u $userid -g $group $user
+RUN addgroup --gid $groupid $group && \
+    adduser -u $userid -G $group -D -g "" $user
 RUN chown -R $user:$group /opt/app/policy-agent
 RUN chown -R $user:$group /var/log/policy-agent
 RUN chown -R $user:$group /var/policy-management-service
