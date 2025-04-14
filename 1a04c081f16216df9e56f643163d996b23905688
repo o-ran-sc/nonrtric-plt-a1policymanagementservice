@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d76903d_82bf20a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2025-04-14T12:12:24Z",
+      "side": 1,
+      "message": "Can we take this opportunity to update application_configuration.json ? .....\ne.g. sample of change/remove one ric\u0027s managedelements, and fix the typo for ric3\u0027s url.",
+      "revId": "1a04c081f16216df9e56f643163d996b23905688",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "240d2196_043a8325",
+        "filename": "api/a1pms-api-v3.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2025-04-14T12:12:24Z",
+      "side": 1,
+      "message": "same comment here as below",
+      "range": {
+        "startLine": 5,
+        "startChar": 17,
+        "endLine": 6,
+        "endChar": 34
+      },
+      "revId": "1a04c081f16216df9e56f643163d996b23905688",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f933ff9c_83db8d03",
+        "filename": "api/a1pms-api-v3.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2025-04-14T12:12:24Z",
+      "side": 1,
+      "message": "We should eventually replace this with OSC NONRTRIC ... but OK for now.",
+      "range": {
+        "startLine": 8,
+        "startChar": 39,
+        "endLine": 8,
+        "endChar": 78
+      },
+      "revId": "1a04c081f16216df9e56f643163d996b23905688",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4eb780f1_038185e7",
+        "filename": "api/a1pms-api-v3.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2025-04-14T12:12:24Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 13,
+        "startChar": 14,
+        "endLine": 13,
+        "endChar": 37
+      },
+      "revId": "1a04c081f16216df9e56f643163d996b23905688",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61b84dde_316a174c",
+        "filename": "api/pms-api.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2025-04-14T12:12:24Z",
+      "side": 1,
+      "message": "Same comment as above",
+      "range": {
+        "startLine": 9,
+        "startChar": 40,
+        "endLine": 9,
+        "endChar": 64
+      },
+      "revId": "1a04c081f16216df9e56f643163d996b23905688",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "665c410e_306960f6",
+        "filename": "api/pms-api.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2025-04-14T12:12:24Z",
+      "side": 1,
+      "message": "... and here.",
+      "range": {
+        "startLine": 14,
+        "startChar": 15,
+        "endLine": 14,
+        "endChar": 41
+      },
+      "revId": "1a04c081f16216df9e56f643163d996b23905688",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0677e359_e8cfd508",
+        "filename": "onap/oran",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2025-04-14T12:12:24Z",
+      "side": 1,
+      "message": "Not sure what this commit ID points to ... \nWas previously released OSLO version (Tag 2.0.0) \nI guess point to tip of master (de99868...) or tip of Oslo (1b8042c...)",
+      "range": {
+        "startLine": 1,
+        "startChar": 18,
+        "endLine": 1,
+        "endChar": 58
+      },
+      "revId": "1a04c081f16216df9e56f643163d996b23905688",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    }
+  ]
+}
