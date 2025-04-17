@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23112091_f7589d7a",
+        "filename": "pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2025-04-17T13:58:59Z",
+      "side": 1,
+      "message": "I guess yq could be used instead .... \nBut, in general I\u0027m not a big fan of shell executions in pom files, because it breaks the build on any platform that cannot run the command (e.g. different OS\u0027s or some required function is not available/installed, or the command format is different for that environment) \nI guess this is OK for now, but hopefully we can find a better way, since we are already using mustache ... Lets discuss this again.",
+      "range": {
+        "startLine": 424,
+        "startChar": 0,
+        "endLine": 424,
+        "endChar": 2
+      },
+      "revId": "25b902d08776231c9e6ae0caa60dd023a71a827a",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    }
+  ]
+}
