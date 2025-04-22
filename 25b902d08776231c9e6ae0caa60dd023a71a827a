@@ -22,6 +22,30 @@
       },
       "revId": "25b902d08776231c9e6ae0caa60dd023a71a827a",
       "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6f508c9_c78ef8e8",
+        "filename": "pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1002638
+      },
+      "writtenOn": "2025-04-22T08:33:10Z",
+      "side": 1,
+      "message": "I had an older version of pyyaml installed when compared to the Jenkins job. That caused the failure. Now both versions pass.",
+      "parentUuid": "23112091_f7589d7a",
+      "range": {
+        "startLine": 424,
+        "startChar": 0,
+        "endLine": 424,
+        "endChar": 2
+      },
+      "revId": "25b902d08776231c9e6ae0caa60dd023a71a827a",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
     }
   ]
 }
