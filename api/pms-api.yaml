@@ -31,9 +31,9 @@ info:
     \ When a registered service is unavailable, its policies are removed.</li></ul><h2>APIs\
     \ provided or defined by the service</h2> <p>Note: parts of this API are strongly\
     \ based on extracts of the O-RAN Alliance R1 Interface specification for A1 Policy\
-    \ Management, and those parts should be considered '\xA9 O-RAN ALLIANCE - All\
-    \ rights reserved.'</p> <h3>A1 Policy Management</h3> <p>This is the latest API\
-    \ for managing A1 Policies. This API is partially compliant with O-RAN Alliance\
+    \ Management, and those parts should be considered '\xC2\xA9 O-RAN ALLIANCE -\
+    \ All rights reserved.'</p> <h3>A1 Policy Management</h3> <p>This is the latest\
+    \ API for managing A1 Policies. This API is partially compliant with O-RAN Alliance\
     \ R1 Interface specifications for A1 Policy Management:</p><ul><li>A1 Policy retrieval,\
     \ creation, modification and deletion.</li><li>Retrieval of supported A1 Policy\
     \ Types for a Near-RT RIC</li><li>Retrieval of status for existing A1 policies</li></ul><h3>Management\
