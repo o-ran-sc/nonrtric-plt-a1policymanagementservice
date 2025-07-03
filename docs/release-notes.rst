@@ -72,6 +72,9 @@ Version history A1 Policy Management Service (A1 Policy Agent)
 | 2024-12-19 | 2.9.0    | John Keeney      | K Release          |
 |            |          |                  |                    |
 +------------+----------+------------------+--------------------+
+| 2025-07-03 | 2.10.0   | John Keeney      | L Release          |
+|            |          |                  |                    |
++------------+----------+------------------+--------------------+
 
 Release Data
 ============
@@ -366,7 +369,7 @@ K Release
 |                             | 281562aab3e1b4e4065863c769ce0a6522f5e5aa               |
 |                             |                                                        |
 +-----------------------------+--------------------------------------------------------+
-| **Release designation**     | J                                                      |
+| **Release designation**     | K                                                      |
 |                             |                                                        |
 +-----------------------------+--------------------------------------------------------+
 | **Release date**            | 2024-12-19                                             |
@@ -375,5 +378,27 @@ K Release
 | **Purpose of the delivery** | nonrtric-plt-a1policymanagementservice:2.9.0           |
 |                             |   Numerous security/vulnerability/Stability updates    |
 |                             |   Updated to ONAP Oslo version (v. Dec'24)             |
+|                             |                                                        |
++-----------------------------+--------------------------------------------------------+
+
+K Release
+---------
++-----------------------------+--------------------------------------------------------+
+| **Project**                 | Non-RT RIC A1 Policy Management Service                |
+|                             |                                                        |
++-----------------------------+--------------------------------------------------------+
+| **Repo/commit-ID**          | nonrtric/plt/a1policymanagementservice                 |
+|                             | 281562aab3e1b4e4065863c769ce0a6522f5e5aa               |
+|                             |                                                        |
++-----------------------------+--------------------------------------------------------+
+| **Release designation**     | L                                                      |
+|                             |                                                        |
++-----------------------------+--------------------------------------------------------+
+| **Release date**            | 2024-12-19                                             |
+|                             |                                                        |
++-----------------------------+--------------------------------------------------------+
+| **Purpose of the delivery** | nonrtric-plt-a1policymanagementservice:2.10.0          |
+|                             |   Numerous security/vulnerability/Stability updates    |
+|                             |   Updated to ONAP Paris version (v. Jun'25)            |
 |                             |                                                        |
 +-----------------------------+--------------------------------------------------------+
