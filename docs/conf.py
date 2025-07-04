@@ -21,7 +21,7 @@ from docs_conf.conf import *
 #branch configuration
 
 branch = 'latest'
-onapbranch = 'latest'
+onapbranch = 'paris'
 
 linkcheck_ignore = [
     'http://localhost.*',
