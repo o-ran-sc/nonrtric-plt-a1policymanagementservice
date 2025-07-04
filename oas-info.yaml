@@ -2,7 +2,7 @@ title: OSC - A1 Policy Management API
 version: 1.0.0
 x-api-id: e9776a07-0813-4fca-9801-6f892f0a7c13
 x-audience: external-public
-description: "<h2>General</h2><p>The ORAN SC A1 Policy Management Service \
+description: "<h2>General</h2><p>The ORAN SC A1 Policy Management Service\
     \ provides a REST API for managing A1 policies. <br/>This document describes the latest API set 
     \ to perform tasks for: </p><ul><li>A1 Policy creation, modification and deletion.</li><li>Monitoring\
     \ and maintaining consistency of the SMO view of A1 Policies and the Near-RT RICs</li><li>Maintaining\
@@ -10,7 +10,7 @@ description: "<h2>General</h2><p>The ORAN SC A1 Policy Management Service \
     \ (rApps). When a registered service is unavailable, its policies are removed.</li></ul><h2>APIs\
     \ provided or defined by the service</h2>\
     \ <p>Note: parts of this API are strongly based on extracts of the O-RAN Alliance R1 Interface specification\
-    \ for A1 Policy Management, and those parts should be considered '© O-RAN ALLIANCE - All rights reserved.'</p>\
+    \ for A1 Policy Management, and those parts should be considered 'Copyright (C) O-RAN ALLIANCE - All rights reserved.'</p>\
     \ <h3>A1 Policy Management</h3>\
     \ <p>This is the latest API for managing A1 Policies. This API is partially compliant with O-RAN\
     \ Alliance R1 Interface specifications for A1 Policy Management:</p><ul><li>A1 Policy retrieval, creation,\
@@ -25,8 +25,8 @@ description: "<h2>General</h2><p>The ORAN SC A1 Policy Management Service \
     \ of the A1 Policy Management Service.</p><h3>Service Registry and Supervision</h3>\
     \ <p>API used for registering services/clients/rApps. Each A1 Policy can be tagged with an owner.\
     \ If the owner service is registered, then the service can be optionally monitored by a heart-beat supervision\
-    \ mechanism, and if the registered service becomes unavailable, then it is removed and all its A1 Policies are \
-    \ deleted. Note that services do not need to be registered to create A1 Policies, but unregistered \ 
+    \ mechanism, and if the registered service becomes unavailable, then it is removed and all its A1 Policies are\
+    \ deleted. Note that services do not need to be registered to create A1 Policies, but unregistered\ 
     \ services are not supervised. This is a feature that is optional to use.</p>"
 license:
   name: Copyright (C) 2024 - 2025 OpenInfra Foundation Europe. Licensed under the Apache 2 License.
