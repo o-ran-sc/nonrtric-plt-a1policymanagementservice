@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc906701_b4b8f640",
+        "filename": "onap/oran",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2025-10-08T13:59:13Z",
+      "side": 1,
+      "message": "Would it be better to update to latest 34f6f29 ? \n(I know that last change is pomfile update only, and pom file is ignored ... but just for completeness?)",
+      "range": {
+        "startLine": 1,
+        "startChar": 18,
+        "endLine": 1,
+        "endChar": 58
+      },
+      "revId": "b906c9eb4e9e6571835a352d2457495842684be4",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    }
+  ]
+}
