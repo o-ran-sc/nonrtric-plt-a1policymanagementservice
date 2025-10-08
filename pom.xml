@@ -27,7 +27,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.3</version>
+        <version>3.5.6</version>
         <relativePath/>
     </parent>
     <groupId>org.o-ran-sc.nonrtric.plt</groupId>
@@ -48,11 +48,11 @@
     </repositories>
     <properties>
         <java.version>17</java.version>
-        <software.amazon.awssdk.version>2.31.57</software.amazon.awssdk.version>
+        <software.amazon.awssdk.version>2.32.33</software.amazon.awssdk.version>
         <json.version>20250517</json.version>
         <commons-io.version>2.19.0</commons-io.version>
         <guava.version>33.4.8-jre</guava.version>
-        <squareup.okhttp.version>5.0.0-alpha.16</squareup.okhttp.version>
+        <squareup.okhttp.version>5.1.0</squareup.okhttp.version>
         <surefire-maven-plugin.version>3.5.3</surefire-maven-plugin.version>
         <surefire-report-plugin.version>3.5.3</surefire-report-plugin.version>
         <maven-compiler-plugin.version>3.10.0</maven-compiler-plugin.version>
@@ -76,9 +76,11 @@
         <opentelemetry-instrumentation-bom-alpha.version>2.7.0-alpha</opentelemetry-instrumentation-bom-alpha.version>
         <skiptests>false</skiptests>
         <skipgitsubmodule>false</skipgitsubmodule>
-        <version.logback>8.1</version.logback>
-        <spring.boot.version>3.5.3</spring.boot.version>
+        <version.logstash>8.1</version.logstash>
+        <version.logback>1.5.19</version.logback>
+        <spring.boot.version>3.5.6</spring.boot.version>
         <version.kotlin>2.1.21</version.kotlin>
+        <version.java.protobuf>4.31.1</version.java.protobuf>
     </properties>
     <dependencies>
         <dependency>
@@ -291,12 +293,27 @@
         <dependency>
             <groupId>net.logstash.logback</groupId>
             <artifactId>logstash-logback-encoder</artifactId>
+            <version>${version.logstash}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${version.logback}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
             <version>${version.logback}</version>
         </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib</artifactId>
             <version>${version.kotlin}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>${version.java.protobuf}</version>
         </dependency>
     </dependencies>
     <dependencyManagement>
