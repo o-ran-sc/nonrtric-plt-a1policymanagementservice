@@ -18,7 +18,7 @@
 # SPDX-License-Identifier: Apache-2.0
 # ============LICENSE_END=========================================================
 #
-FROM amazoncorretto:17-alpine as jre-build
+FROM nexus3.onap.org:10001/library/amazoncorretto:21-alpine3.22-jdk as jre-build
 
 RUN apk add binutils
 RUN $JAVA_HOME/bin/jlink \
@@ -31,7 +31,7 @@ RUN $JAVA_HOME/bin/jlink \
 --output /customjre
 
 # Use debian base image (same as openjdk uses)
-FROM amazoncorretto:17-alpine
+FROM nexus3.onap.org:10001/library/amazoncorretto:21-alpine3.22-jdk
 
 ENV JAVA_HOME=/jre
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
