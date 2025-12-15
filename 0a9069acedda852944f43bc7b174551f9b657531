@@ -1,0 +1,8 @@
+Verified+1: ORAN Required GHA <releng+oran.required.gha@linuxfoundation.org>
+Code-Review+2: John Keeney <john.keeney@est.tech>
+Verified+1: John Keeney <john.keeney@est.tech>
+Submitted-by: John Keeney <john.keeney@est.tech>
+Submitted-at: Mon, 15 Dec 2025 18:07:32 +0000
+Reviewed-on: https://gerrit.o-ran-sc.org/r/c/nonrtric/plt/a1policymanagementservice/+/15380
+Project: nonrtric/plt/a1policymanagementservice
+Branch: refs/heads/master
