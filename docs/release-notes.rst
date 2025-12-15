@@ -75,6 +75,9 @@ Version history A1 Policy Management Service (A1 Policy Agent)
 | 2025-07-03 | 2.10.0   | John Keeney      | L Release          |
 |            |          |                  |                    |
 +------------+----------+------------------+--------------------+
+| 2025-12-15 | 2.11.0   | John Keeney      | M Release          |
+|            |          |                  |                    |
++------------+----------+------------------+--------------------+
 
 Release Data
 ============
@@ -400,5 +403,26 @@ L Release
 | **Purpose of the delivery** | nonrtric-plt-a1policymanagementservice:2.10.0          |
 |                             |   Numerous security/vulnerability/Stability updates    |
 |                             |   Updated to ONAP Paris version (v. Jun'25)            |
+|                             |                                                        |
++-----------------------------+--------------------------------------------------------+
+
+M Release
+---------
++-----------------------------+--------------------------------------------------------+
+| **Project**                 | Non-RT RIC A1 Policy Management Service                |
+|                             |                                                        |
++-----------------------------+--------------------------------------------------------+
+| **Repo/commit-ID**          | nonrtric/plt/a1policymanagementservice                 |
+|                             |         ec24501bef561e65052a5de28176e4148100c434       |
+|                             |                                                        |
++-----------------------------+--------------------------------------------------------+
+| **Release designation**     | M                                                      |
+|                             |                                                        |
++-----------------------------+--------------------------------------------------------+
+| **Release date**            | 2025-12-15                                             |
+|                             |                                                        |
++-----------------------------+--------------------------------------------------------+
+| **Purpose of the delivery** | nonrtric-plt-a1policymanagementservice:2.11.0          |
+|                             |   Updated Springboot version                           |
 |                             |                                                        |
 +-----------------------------+--------------------------------------------------------+
