@@ -15,3 +15,4 @@ Non-RT RIC A1 Policy Management Service
    ./installation-guide.rst
    ./release-notes.rst
    ./api-docs.rst
+
