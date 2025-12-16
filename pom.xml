@@ -60,8 +60,8 @@
         <sonar-maven-plugin.version>3.7.0.1746</sonar-maven-plugin.version>
         <jacoco-maven-plugin.version>0.8.13</jacoco-maven-plugin.version>
         <exec-maven-plugin.version>3.1.0</exec-maven-plugin.version>
-        <localstack.version>1.21.1</localstack.version>
-        <junit.jupiter.version>1.21.1</junit.jupiter.version>
+        <localstack.version>2.0.3</localstack.version>
+        <junit.jupiter.version>2.0.3</junit.jupiter.version>
         <gson.version>2.13.1</gson.version>
         <jakarta.annotation-api.version>3.0.0</jakarta.annotation-api.version>
         <everit-json-schema.version>1.14.6</everit-json-schema.version>
@@ -210,13 +210,13 @@
         </dependency>
         <dependency>
             <groupId>org.testcontainers</groupId>
-            <artifactId>junit-jupiter</artifactId>
+            <artifactId>testcontainers-junit-jupiter</artifactId>
             <version>${junit.jupiter.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.testcontainers</groupId>
-            <artifactId>localstack</artifactId>
+            <artifactId>testcontainers-localstack</artifactId>
             <version>${localstack.version}</version>
             <scope>test</scope>
         </dependency>
@@ -329,6 +329,13 @@
                 <groupId>io.opentelemetry.instrumentation</groupId>
                 <artifactId>opentelemetry-instrumentation-bom-alpha</artifactId>
                 <version>${opentelemetry-instrumentation-bom-alpha.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.testcontainers</groupId>
+                <artifactId>testcontainers-bom</artifactId>
+                <version>${localstack.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
