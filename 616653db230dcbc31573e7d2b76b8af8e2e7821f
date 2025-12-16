@@ -16,6 +16,23 @@
       "message": "Cannot merge until ci-management issue IT-29098 is solved to create verify jobs for this branch.\nRef: https://gerrit.o-ran-sc.org/r/c/ci-management/+/15383\nOnce solved, recheck \u0026 merge.\n\nAlso. \nDocs merge will fail until nonrtric m-release docs are ready",
       "revId": "616653db230dcbc31573e7d2b76b8af8e2e7821f",
       "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c06138c_c7c1bca5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2025-12-16T15:23:10Z",
+      "side": 1,
+      "message": "recheck",
+      "revId": "616653db230dcbc31573e7d2b76b8af8e2e7821f",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
     }
   ]
 }
