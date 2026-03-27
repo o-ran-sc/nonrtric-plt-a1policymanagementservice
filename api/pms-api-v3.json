@@ -2,15 +2,15 @@
   "openapi" : "3.0.3",
   "info" : {
     "contact" : {
-      "email" : "discuss@lists.o-ran-sc.org",
-      "url" : "https://o-ran-sc.org//"
+      "email" : "discuss-list@onap.com",
+      "url" : "https://www.onap.org/"
     },
-    "description" : "<h2>General</h2><p>The ORAN SC A1 Policy Management Service provides a REST API for managing A1 policies. <br/>This document describes the latest API set  to perform tasks for: </p><ul><li>A1 Policy creation, modification and deletion.</li><li>Monitoring and maintaining consistency of the SMO view of A1 Policies and the Near-RT RICs</li><li>Maintaining a view of each Near-RT RIC's supported A1 Policy Types</li><li>Supervision of registered services (rApps). When a registered service is unavailable, its policies are removed.</li></ul><h2>APIs provided or defined by the service</h2> <p>Note: parts of this API are strongly based on extracts of the O-RAN Alliance R1 Interface specification for A1 Policy Management, and those parts should be considered 'Copyright (C) O-RAN ALLIANCE - All rights reserved.'</p> <h3>A1 Policy Management</h3> <p>This is the latest API for managing A1 Policies. This API is partially compliant with O-RAN Alliance R1 Interface specifications for A1 Policy Management:</p><ul><li>A1 Policy retrieval, creation, modification and deletion.</li><li>Retrieval of supported A1 Policy Types for a Near-RT RIC</li><li>Retrieval of status for existing A1 policies</li></ul><h3>Management of configuration</h3><p>API for updating and retrieval of the component configuration. Note that there other ways to maintain the configuration.</p><h3>Service Callbacks</h3><p>These are endpoints that are invoked by this service. The callbacks are registered in this service at service registration.</p><h3>NearRT-RIC Repository  (Older version)</h3> <p>This is an API that provides support for looking up a NearRT-RIC. Each A1 policy is targeted towards one Near-RT RIC.</p><h3>Health Check</h3><p>API used for supervision of the A1 Policy Management Service.</p><h3>Service Registry and Supervision</h3> <p>API used for registering services/clients/rApps. Each A1 Policy can be tagged with an owner. If the owner service is registered, then the service can be optionally monitored by a heart-beat supervision mechanism, and if the registered service becomes unavailable, then it is removed and all its A1 Policies are deleted. Note that services do not need to be registered to create A1 Policies, but unregistered   services are not supervised. This is a feature that is optional to use.</p>",
+    "description" : "<h2>General</h2><p>The ONAP CCSDK A1 Policy Management Service provides a REST API for managing A1 policies. <br/>This document describes the latest API set  to perform tasks for: </p><ul><li>A1 Policy creation, modification and deletion.</li><li>Monitoring and maintaining consistency of the SMO view of A1 Policies and the Near-RT RICs</li><li>Maintaining a view of each Near-RT RIC's supported A1 Policy Types</li><li>Supervision of registered services (rApps). When a registered service is unavailable, its policies are removed.</li></ul><h2>APIs provided or defined by the service</h2> <p>Note: parts of this API are strongly based on extracts of the O-RAN Alliance R1 Interface specification for A1 Policy Management, and those parts should be considered '© O-RAN ALLIANCE - All rights reserved.'</p> <h3>A1 Policy Management</h3> <p>This is the latest API for managing A1 Policies. This API is partially compliant with O-RAN Alliance R1 Interface specifications for A1 Policy Management:</p><ul><li>A1 Policy retrieval, creation, modification and deletion.</li><li>Retrieval of supported A1 Policy Types for a Near-RT RIC</li><li>Retrieval of status for existing A1 policies</li></ul><h3>Management of configuration</h3><p>API for updating and retrieval of the component configuration. Note that there other ways to maintain the configuration.</p><h3>Service Callbacks</h3><p>These are endpoints that are invoked by this service. The callbacks are registered in this service at service registration.</p><h3>NearRT-RIC Repository  (Older version)</h3> <p>This is an API that provides support for looking up a NearRT-RIC. Each A1 policy is targeted towards one Near-RT RIC.</p><h3>Health Check</h3><p>API used for supervision of the A1 Policy Management Service.</p><h3>Service Registry and Supervision</h3> <p>API used for registering services/clients/rApps. Each A1 Policy can be tagged with an owner. If the owner service is registered, then the service can be optionally monitored by a heart-beat supervision mechanism, and if the registered service becomes unavailable, then it is removed and all its A1 Policies are  deleted. Note that services do not need to be registered to create A1 Policies, but unregistered    services are not supervised. This is a feature that is optional to use.</p>",
     "license" : {
       "name" : "Copyright (C) 2024 - 2025 OpenInfra Foundation Europe. Licensed under the Apache 2 License.",
       "url" : "http://www.apache.org/licenses/LICENSE-2.0"
     },
-    "title" : "OSC - A1 Policy Management API",
+    "title" : "ONAP CCSDK - A1 Policy Management API",
     "version" : "1.0.0",
     "x-api-id" : "e9776a07-0813-4fca-9801-6f892f0a7c13",
     "x-audience" : "external-public"
@@ -93,19 +93,15 @@
           "schema" : {
             "nullable" : false,
             "type" : "string"
-          },
-          "style" : "simple"
+          }
         }, {
           "description" : "Specifies the content type that the client expects to receive in response to the request. Only application/json is allowed.",
-          "explode" : false,
           "in" : "header",
           "name" : "Accept",
-          "required" : false,
           "schema" : {
             "example" : "application/json",
             "type" : "string"
-          },
-          "style" : "simple"
+          }
         } ],
         "responses" : {
           "200" : {
@@ -154,15 +150,12 @@
           "style" : "form"
         }, {
           "description" : "Specifies the content type that the client expects to receive in response to the request. Only application/json is allowed.",
-          "explode" : false,
           "in" : "header",
           "name" : "Accept",
-          "required" : false,
           "schema" : {
             "example" : "application/json",
             "type" : "string"
-          },
-          "style" : "simple"
+          }
         } ],
         "responses" : {
           "200" : {
@@ -231,15 +224,12 @@
           "style" : "form"
         }, {
           "description" : "Specifies the content type that the client expects to receive in response to the request. Only application/json is allowed.",
-          "explode" : false,
           "in" : "header",
           "name" : "Accept",
-          "required" : false,
           "schema" : {
             "example" : "application/json",
             "type" : "string"
-          },
-          "style" : "simple"
+          }
         } ],
         "responses" : {
           "200" : {
@@ -370,15 +360,12 @@
           "style" : "simple"
         }, {
           "description" : "Specifies the content type that the client expects to receive in response to the request. Only application/json is allowed.",
-          "explode" : false,
           "in" : "header",
           "name" : "Accept",
-          "required" : false,
           "schema" : {
             "example" : "application/json",
             "type" : "string"
-          },
-          "style" : "simple"
+          }
         } ],
         "responses" : {
           "200" : {
@@ -506,15 +493,12 @@
           "style" : "simple"
         }, {
           "description" : "Specifies the content type that the client expects to receive in response to the request. Only application/json is allowed.",
-          "explode" : false,
           "in" : "header",
           "name" : "Accept",
-          "required" : false,
           "schema" : {
             "example" : "application/json",
             "type" : "string"
-          },
-          "style" : "simple"
+          }
         } ],
         "responses" : {
           "204" : {
@@ -653,15 +637,12 @@
           "style" : "simple"
         }, {
           "description" : "Specifies the content type that the client expects to receive in response to the request. Only application/json is allowed.",
-          "explode" : false,
           "in" : "header",
           "name" : "Accept",
-          "required" : false,
           "schema" : {
             "example" : "application/json",
             "type" : "string"
-          },
-          "style" : "simple"
+          }
         } ],
         "responses" : {
           "200" : {
@@ -777,14 +758,12 @@
         "description" : "Update an existing A1 Policy instance's policy data using its policy ID.",
         "operationId" : "updatePolicy",
         "parameters" : [ {
-          "explode" : false,
           "in" : "path",
           "name" : "policyId",
           "required" : true,
           "schema" : {
             "type" : "string"
-          },
-          "style" : "simple"
+          }
         } ],
         "requestBody" : {
           "content" : {
@@ -967,15 +946,12 @@
           "style" : "simple"
         }, {
           "description" : "Specifies the content type that the client expects to receive in response to the request. Only application/json is allowed.",
-          "explode" : false,
           "in" : "header",
           "name" : "Accept",
-          "required" : false,
           "schema" : {
             "example" : "application/json",
             "type" : "string"
-          },
-          "style" : "simple"
+          }
         } ],
         "responses" : {
           "200" : {
@@ -1129,15 +1105,12 @@
           "style" : "form"
         }, {
           "description" : "Specifies the content type that the client expects to receive in response to the request. Only application/json is allowed.",
-          "explode" : false,
           "in" : "header",
           "name" : "Accept",
-          "required" : false,
           "schema" : {
             "example" : "application/json",
             "type" : "string"
-          },
-          "style" : "simple"
+          }
         } ],
         "responses" : {
           "200" : {
@@ -1273,21 +1246,17 @@
             "headers" : {
               "Location" : {
                 "description" : "Contains the URI of the newly created A1 Policy Instances. This URI includes the A1 Policy Instance ID for the newly  created policy instance.\n",
-                "explode" : false,
                 "required" : true,
                 "schema" : {
                   "type" : "string"
-                },
-                "style" : "simple"
+                }
               },
               "Content-Type" : {
                 "description" : "Media Type of the response",
-                "explode" : false,
                 "schema" : {
                   "example" : "application/json",
                   "type" : "string"
-                },
-                "style" : "simple"
+                }
               }
             }
           },
@@ -1524,15 +1493,12 @@
           "style" : "simple"
         }, {
           "description" : "Specifies the content type that the client expects to receive in response to the request. Only application/json is allowed.",
-          "explode" : false,
           "in" : "header",
           "name" : "Accept",
-          "required" : false,
           "schema" : {
             "example" : "application/json",
             "type" : "string"
-          },
-          "style" : "simple"
+          }
         } ],
         "responses" : {
           "200" : {
@@ -1576,15 +1542,12 @@
           "style" : "form"
         }, {
           "description" : "Specifies the content type that the client expects to receive in response to the request. Only application/json is allowed.",
-          "explode" : false,
           "in" : "header",
           "name" : "Accept",
-          "required" : false,
           "schema" : {
             "example" : "application/json",
             "type" : "string"
-          },
-          "style" : "simple"
+          }
         } ],
         "responses" : {
           "200" : {
@@ -1656,8 +1619,7 @@
                   }
                 },
                 "summary" : "Callback for Near-RT RIC status (serviceCallback)",
-                "tags" : [ "Service Registry and Supervision" ],
-                "x-callback-request" : true
+                "tags" : [ "Service Registry and Supervision" ]
               }
             }
           }
@@ -1725,15 +1687,12 @@
           "style" : "simple"
         }, {
           "description" : "Specifies the content type that the client expects to receive in response to the request. Only application/json is allowed.",
-          "explode" : false,
           "in" : "header",
           "name" : "Accept",
-          "required" : false,
           "schema" : {
             "example" : "application/json",
             "type" : "string"
-          },
-          "style" : "simple"
+          }
         } ],
         "responses" : {
           "204" : {
@@ -2060,9 +2019,6 @@
     },
     "schemas" : {
       "StatusInfo" : {
-        "example" : {
-          "status" : "status"
-        },
         "properties" : {
           "status" : {
             "description" : "Status text",
@@ -2099,12 +2055,6 @@
       },
       "RicInfo" : {
         "description" : "Information for a Near-RT RIC",
-        "example" : {
-          "ricId" : "ricId",
-          "policyTypeIds" : [ "policyTypeIds", "policyTypeIds" ],
-          "managedElementIds" : [ "managedElementIds", "managedElementIds" ],
-          "state" : "UNAVAILABLE"
-        },
         "properties" : {
           "ricId" : {
             "description" : "Identity of the Near-RT RIC",
@@ -2136,19 +2086,6 @@
       },
       "RicInfoList" : {
         "description" : "Collection of Near-RT RIC information objects",
-        "example" : {
-          "rics" : [ {
-            "ricId" : "ricId",
-            "policyTypeIds" : [ "policyTypeIds", "policyTypeIds" ],
-            "managedElementIds" : [ "managedElementIds", "managedElementIds" ],
-            "state" : "UNAVAILABLE"
-          }, {
-            "ricId" : "ricId",
-            "policyTypeIds" : [ "policyTypeIds", "policyTypeIds" ],
-            "managedElementIds" : [ "managedElementIds", "managedElementIds" ],
-            "state" : "UNAVAILABLE"
-          } ]
-        },
         "properties" : {
           "rics" : {
             "description" : "List of Near-RT RIC information objects",
@@ -2172,8 +2109,7 @@
             "type" : "string"
           },
           "nearRtRicId" : {
-            "description" : "Identity of the Near-RT RIC",
-            "type" : "string"
+            "$ref" : "#/components/schemas/NearRtRicId"
           }
         },
         "required" : [ "nearRtRicId", "policyTypeId" ],
@@ -2236,12 +2172,10 @@
         },
         "properties" : {
           "policySchema" : {
-            "description" : "A schema to define the policy data contents of A1 Policy Instances.  Policy data schemas are Policy Type specific.  All A1 Policy Instances of an A1 Policy Type should comply with the type's policy data schema.\n",
-            "type" : "object"
+            "$ref" : "#/components/schemas/PolicySchema"
           },
           "statusSchema" : {
-            "description" : "A schema to define the contents of the status information for A1 Policy Instances.  Status schemas are Policy Type specific.  All status information for all A1 Policy Instances of an A1 Policy Type should comply  with the type's status schema.\n",
-            "type" : "object"
+            "$ref" : "#/components/schemas/StatusSchema"
           }
         },
         "required" : [ "policySchema" ],
@@ -2287,18 +2221,13 @@
       },
       "PolicyInformation" : {
         "description" : "Information tuple for a single A1 Policy Instance.  Contains the A1 Policy Instance ID, and the ID of the Near-RT RIC where the policy is created.\n",
-        "example" : {
-          "policyId" : "policyId",
-          "nearRtRicId" : "nearRtRicId"
-        },
         "properties" : {
           "policyId" : {
             "description" : "Identity of the A1 Policy Instance",
             "type" : "string"
           },
           "nearRtRicId" : {
-            "description" : "Identity of the Near-RT RIC",
-            "type" : "string"
+            "$ref" : "#/components/schemas/NearRtRicId"
           }
         },
         "required" : [ "nearRtRicId", "policyId" ],
@@ -2306,14 +2235,6 @@
       },
       "PolicyObjectInformation" : {
         "description" : "Information to create an A1 Policy Instance",
-        "example" : {
-          "policyId" : "POLICY-ID1",
-          "nearRtRicId" : "Near-RT-Ric-ID1",
-          "transient" : false,
-          "policyObject" : "{}",
-          "serviceId" : "rApp 1",
-          "policyTypeId" : "ORAN_QOS_1.0.0 '(typeName_SemVersion)'"
-        },
         "properties" : {
           "nearRtRicId" : {
             "description" : "Identity of the target Near-RT RIC",
@@ -2338,8 +2259,7 @@
             "type" : "string"
           },
           "policyObject" : {
-            "description" : "Policy Object is a JSON representation policy data for an A1 Policy Instance. The schema for this policy data is defined in the corresponding A1 Policy Type.\n",
-            "type" : "object"
+            "$ref" : "#/components/schemas/PolicyObject"
           },
           "policyTypeId" : {
             "description" : "A1 Policy Type identity",
@@ -2355,19 +2275,6 @@
         "type" : "object"
       },
       "ServiceStatusList" : {
-        "example" : {
-          "serviceList" : [ {
-            "keepAliveIntervalSeconds" : 0,
-            "callbackUrl" : "callbackUrl",
-            "timeSinceLastActivitySeconds" : 6,
-            "serviceId" : "serviceId"
-          }, {
-            "keepAliveIntervalSeconds" : 0,
-            "callbackUrl" : "callbackUrl",
-            "timeSinceLastActivitySeconds" : 6,
-            "serviceId" : "serviceId"
-          } ]
-        },
         "properties" : {
           "serviceList" : {
             "description" : "List of Service Status objects, describing a collection of registered services.",
@@ -2381,12 +2288,6 @@
       },
       "ServiceStatus" : {
         "description" : "Information about a previously registered service",
-        "example" : {
-          "keepAliveIntervalSeconds" : 0,
-          "callbackUrl" : "callbackUrl",
-          "timeSinceLastActivitySeconds" : 6,
-          "serviceId" : "serviceId"
-        },
         "properties" : {
           "callbackUrl" : {
             "description" : "Callback URL for notifying of Near-RT RIC state changes",
@@ -2411,11 +2312,6 @@
       },
       "ServiceRegistrationInfo" : {
         "description" : "Information for a service to be registered",
-        "example" : {
-          "keepAliveIntervalSeconds" : 0,
-          "callbackUrl" : "callbackUrl",
-          "serviceId" : "serviceId"
-        },
         "properties" : {
           "callbackUrl" : {
             "description" : "Callback URL for notifying of Near-RT RIC state changes",
@@ -2436,10 +2332,6 @@
       },
       "ServiceCallbackInfo" : {
         "description" : "Information transferred in Service callbacks, \nif a callback URL was provided for a registered service\n",
-        "example" : {
-          "ricId" : "ricId",
-          "eventType" : "AVAILABLE"
-        },
         "properties" : {
           "ricId" : {
             "description" : "Identity of a Near-RT RIC",

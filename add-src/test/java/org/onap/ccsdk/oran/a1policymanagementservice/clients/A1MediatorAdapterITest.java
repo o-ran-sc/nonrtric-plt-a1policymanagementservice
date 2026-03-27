@@ -112,7 +112,7 @@ class A1MediatorAdapterITest {
 
     @Test
     @DisplayName("test Get Valid PolicyType")
-    void testGetValidPolicyType() {
+    void testGetValidPolicyType() throws JSONException  {
         String policyType = "{\"create_schema\": " + POLICY_TYPE_SCHEMA_VALID + "}";
         Mono<String> policyTypeResp = Mono.just(policyType);
 
@@ -120,8 +120,9 @@ class A1MediatorAdapterITest {
 
         Mono<String> returnedMono = clientUnderTest.getPolicyTypeSchema(POLICY_TYPE_1_ID);
         verify(asyncRestClientMock).get(POLICYTYPES_URL + POLICY_TYPE_1_ID);
-        StepVerifier.create(returnedMono).expectNext(getCreateSchema(policyType, POLICY_TYPE_1_ID)).expectComplete()
-                .verify();
+        String schema = getCreateSchema(policyType, POLICY_TYPE_1_ID);
+        StepVerifier.create(returnedMono).expectNext(schema)
+            .expectComplete().verifyThenAssertThat().hasNotDroppedErrors();
     }
 
     @Test
@@ -195,7 +196,7 @@ class A1MediatorAdapterITest {
         verify(asyncRestClientMock).delete(POLICYTYPES_URL + POLICY_TYPE_2_ID + POLICIES + "/" + POLICY_2_ID);
     }
 
-    private String getCreateSchema(String policyType, String policyTypeId) {
+    private String getCreateSchema(String policyType, String policyTypeId) throws JSONException{
         JSONObject obj = new JSONObject(policyType);
         JSONObject schemaObj = obj.getJSONObject("create_schema");
         schemaObj.put("title", policyTypeId);
