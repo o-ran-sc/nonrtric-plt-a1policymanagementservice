@@ -16,6 +16,23 @@
       "message": "recheck",
       "revId": "c40c441fa46866347a0997d11a32007d2fde2af9",
       "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a177527e_33a324ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2026-05-06T15:51:18Z",
+      "side": 1,
+      "message": "Breaks the docs build",
+      "revId": "c40c441fa46866347a0997d11a32007d2fde2af9",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
     }
   ]
 }
