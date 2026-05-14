@@ -1,0 +1,22 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3cfc56c_50a78954",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001777
+      },
+      "writtenOn": "2026-05-14T15:05:31Z",
+      "side": 1,
+      "message": "Apologies for breaking the docs build in PS1. PS2 restores the build.jobs.pre_build block verbatim, including the mkdir for _readthedocs/html/offeredapis/pms-api/ and the cp of the openapitoolgen-generated PMS API HTML files into the published site. The PS2 vs origin/master diff now only contains the os ubuntu-22.04 -\u003e 24.04 bump, the python 3.11 -\u003e 3.13 bump, and the tox.ini / docs/requirements-docs.txt slimming. Could you please re-review and clear the Code-Review-2 if you are satisfied?",
+      "parentUuid": "a177527e_33a324ab",
+      "revId": "07e0baf7c1012c7659895bef20247eab1a5855e0",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    }
+  ]
+}
