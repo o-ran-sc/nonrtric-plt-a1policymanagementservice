@@ -30,8 +30,7 @@ RUN $JAVA_HOME/bin/jlink \
 --compress=2 \
 --output /customjre
 
-# Use debian base image (same as openjdk uses)
-FROM nexus3.onap.org:10001/library/amazoncorretto:21-alpine3.22-jdk
+FROM nexus3.onap.org:10001/library/alpine:3.22
 
 ENV JAVA_HOME=/jre
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
