@@ -27,7 +27,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.0.6</version>
+        <version>4.1.0</version>
         <relativePath/>
     </parent>
     <groupId>org.o-ran-sc.nonrtric.plt</groupId>
@@ -41,16 +41,8 @@
     </licenses>
     <properties>
         <java.version>17</java.version>
-        <spring.boot.version>4.0.6</spring.boot.version>
-        <!-- Start Temp overrides -->
-        <!-- Override Tomcat version. Remove after upgrading to springboot 4.0.7+ (Spring Boot 4.0.6 manages 11.0.21 which has CVEs) -->
-		<tomcat.version>11.0.22</tomcat.version>
-        <!-- Override Netty version. Remove after upgrading to springboot 4.0.7+ (Spring Boot 4.0.6 manages 4.2.12 which has CVEs) -->
-        <netty.version>4.2.13.Final</netty.version>
-        <!-- Override postgresql version. Remove after upgrading to springboot 4.0.7+ (Spring Boot 4.0.6 manages 42.7.10 which has CVEs) -->
-        <postgresql.version>42.7.11</postgresql.version>
-        <!-- End Temp overrides -->
-        <software.amazon.awssdk.version>2.32.33</software.amazon.awssdk.version>
+        <spring.boot.version>4.1.0</spring.boot.version>
+        <software.amazon.awssdk.version>2.44.3</software.amazon.awssdk.version>
         <json.version>20250517</json.version>
         <commons-io.version>2.19.0</commons-io.version>
         <guava.version>33.4.8-jre</guava.version>
