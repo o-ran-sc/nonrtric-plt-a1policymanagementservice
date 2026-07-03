@@ -42,6 +42,10 @@
     <properties>
         <java.version>17</java.version>
         <spring.boot.version>4.1.0</spring.boot.version>
+        <!-- Start Temp overrides -->
+        <!-- Override Tomcat version. Remove after upgrading to springboot 4.1.0+ (Spring Boot 4.1.0 managed tomcat has CVEs) -->
+		<tomcat.version>11.0.23</tomcat.version>
+        <!-- End Temp overrides -->
         <software.amazon.awssdk.version>2.44.3</software.amazon.awssdk.version>
         <json.version>20250517</json.version>
         <commons-io.version>2.19.0</commons-io.version>
