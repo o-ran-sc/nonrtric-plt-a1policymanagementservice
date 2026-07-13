@@ -60,10 +60,10 @@
         <swagger-annotations.version>2.2.45</swagger-annotations.version>
         <sonar.scm.exclusions.disabled>true</sonar.scm.exclusions.disabled>
         <mapstruct.version>1.6.3</mapstruct.version>
-        <opentelemetry-bom.version>1.60.1</opentelemetry-bom.version>
-        <opentelemetry-instrumentation-bom-alpha.version>2.27.0-alpha</opentelemetry-instrumentation-bom-alpha.version>
+        <opentelemetry-bom.version>1.63.0</opentelemetry-bom.version>
+        <opentelemetry-instrumentation-bom-alpha.version>2.29.0-alpha</opentelemetry-instrumentation-bom-alpha.version>
         <version.logstash>8.1</version.logstash>
-        <version.logback>1.5.32</version.logback>
+        <version.logback>1.5.33</version.logback>
         <version.kotlin>2.2.21</version.kotlin>
         <version.java.protobuf>4.34.1</version.java.protobuf>
         <surefire-maven-plugin.version>3.5.5</surefire-maven-plugin.version>
