@@ -1,7 +1,7 @@
 .. This work is licensed under a Creative Commons Attribution 4.0 International License.
 .. http://creativecommons.org/licenses/by/4.0
 .. Copyright (C) 2021 Nordix. All rights reserved.
-.. Copyright (C) 2023-2025 OpenInfra Foundation Europe. All rights reserved.
+.. Copyright (C) 2023-2026 OpenInfra Foundation Europe. All rights reserved.
 
 =============
 Release Notes
@@ -76,6 +76,9 @@ Version history A1 Policy Management Service (A1 Policy Agent)
 |            |          |                  |                    |
 +------------+----------+------------------+--------------------+
 | 2025-12-15 | 2.11.0   | John Keeney      | M Release          |
+|            |          |                  |                    |
++------------+----------+------------------+--------------------+
+| 2026-07-15 | 2.13.0   | John Keeney      | N Release          |
 |            |          |                  |                    |
 +------------+----------+------------------+--------------------+
 
@@ -424,5 +427,26 @@ M Release
 +-----------------------------+--------------------------------------------------------+
 | **Purpose of the delivery** | nonrtric-plt-a1policymanagementservice:2.11.0          |
 |                             |   Updated Springboot version                           |
+|                             |                                                        |
++-----------------------------+--------------------------------------------------------+
+
+N Release
+---------
++-----------------------------+--------------------------------------------------------+
+| **Project**                 | Non-RT RIC A1 Policy Management Service                |
+|                             |                                                        |
++-----------------------------+--------------------------------------------------------+
+| **Repo/commit-ID**          | nonrtric/plt/a1policymanagementservice                 |
+|                             |         6c35ea4d6af100997a607eb06643ec322c44848a       |
+|                             |                                                        |
++-----------------------------+--------------------------------------------------------+
+| **Release designation**     | N                                                      |
+|                             |                                                        |
++-----------------------------+--------------------------------------------------------+
+| **Release date**            | 2026-07-15                                             |
+|                             |                                                        |
++-----------------------------+--------------------------------------------------------+
+| **Purpose of the delivery** | nonrtric-plt-a1policymanagementservice:2.13.0          |
+|                             |   Updated Springboot version & 3PP uplifts             |
 |                             |                                                        |
 +-----------------------------+--------------------------------------------------------+
