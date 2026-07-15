@@ -850,8 +850,7 @@
                             <pullRegistry>${env.CONTAINER_PULL_REGISTRY}</pullRegistry>
                             <images>
                                 <image>
-                                    <name>
-                                        o-ran-sc/nonrtric-plt-a1policymanagementservice:${project.version}</name>
+                                    <name>o-ran-sc/nonrtric-plt-a1policymanagementservice:${project.version}</name>
                                     <build>
                                         <contextDir>${basedir}</contextDir>
                                         <dockerFile>Dockerfile</dockerFile>
@@ -877,12 +876,17 @@
                             <pullRegistry>${env.CONTAINER_PULL_REGISTRY}</pullRegistry>
                             <pushRegistry>${env.CONTAINER_PUSH_REGISTRY}</pushRegistry>
                             <images>
-                                <image>
-                                    <name>o-ran-sc/nonrtric-plt-a1policymanagementservice:${project.version}</name>
-                                </image>
-                                <image>
-                                    <name>o-ran-sc/nonrtric-plt-a1policymanagementservice:latest</name>
-                                </image>
+                                <build>
+                                    <contextDir>${basedir}</contextDir>
+                                    <dockerFile>Dockerfile</dockerFile>
+                                    <filter>false</filter>
+                                    <args>
+                                        <JAR>${project.build.finalName}.jar</JAR>
+                                    </args>
+                                    <tags>
+                                        <tag>${project.version}</tag>
+                                    </tags>
+                                </build>
                             </images>
                         </configuration>
                     </execution>
