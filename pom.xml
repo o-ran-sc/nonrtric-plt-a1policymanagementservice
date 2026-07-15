@@ -876,17 +876,20 @@
                             <pullRegistry>${env.CONTAINER_PULL_REGISTRY}</pullRegistry>
                             <pushRegistry>${env.CONTAINER_PUSH_REGISTRY}</pushRegistry>
                             <images>
-                                <build>
-                                    <contextDir>${basedir}</contextDir>
-                                    <dockerFile>Dockerfile</dockerFile>
-                                    <filter>false</filter>
-                                    <args>
-                                        <JAR>${project.build.finalName}.jar</JAR>
-                                    </args>
-                                    <tags>
-                                        <tag>${project.version}</tag>
-                                    </tags>
-                                </build>
+                                <image>
+                                    <name>o-ran-sc/nonrtric-plt-a1policymanagementservice:${project.version}</name>
+                                    <build>
+                                        <contextDir>${basedir}</contextDir>
+                                        <dockerFile>Dockerfile</dockerFile>
+                                        <filter>false</filter>
+                                        <args>
+                                            <JAR>${project.build.finalName}.jar</JAR>
+                                        </args>
+                                        <tags>
+                                            <tag>${project.version}</tag>
+                                        </tags>
+                                    </build>
+                                </image>
                             </images>
                         </configuration>
                     </execution>
