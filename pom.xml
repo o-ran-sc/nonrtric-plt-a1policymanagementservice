@@ -864,11 +864,9 @@
                                             <tag>${project.version}</tag>
                                             <tag>latest</tag>
                                         </tags>
-                                        <verbose>true</verbose>
                                     </build>
                                 </image>
                             </images>
-                            <verbose>true</verbose>
                         </configuration>
                     </execution>
                     <execution>
@@ -881,24 +879,9 @@
                             <pushRegistry>${env.CONTAINER_PUSH_REGISTRY}</pushRegistry>
                             <images>
                                 <image>
-                                    <name>
-                                        o-ran-sc/nonrtric-plt-a1policymanagementservice:${project.version}</name>
-                                    <build>
-                                        <contextDir>${basedir}</contextDir>
-                                        <dockerFile>Dockerfile</dockerFile>
-                                        <filter>false</filter>
-                                        <args>
-                                            <JAR>${project.build.finalName}.jar</JAR>
-                                        </args>
-                                        <tags>
-                                            <tag>${project.version}</tag>
-                                            <tag>latest</tag>
-                                        </tags>
-                                        <verbose>true</verbose>
-                                    </build>
+                                    <name>o-ran-sc/nonrtric-plt-a1policymanagementservice:${project.version}</name>
                                 </image>
                             </images>
-                            <verbose>true</verbose>
                         </configuration>
                     </execution>
                 </executions>
