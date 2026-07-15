@@ -461,7 +461,8 @@
                   }
                 },
                 "summary" : "Callback for Near-RT RIC status (serviceCallback)",
-                "tags" : [ "Service Registry and Supervision", "Service Callbacks" ]
+                "tags" : [ "Service Registry and Supervision", "Service Callbacks" ],
+                "x-callback-request" : true
               }
             }
           }
@@ -1615,6 +1616,9 @@
     },
     "schemas" : {
       "status_info" : {
+        "example" : {
+          "status" : "status"
+        },
         "properties" : {
           "status" : {
             "description" : "status text",
@@ -1625,6 +1629,12 @@
       },
       "ric_info" : {
         "description" : "Information for a Near-RT RIC",
+        "example" : {
+          "ric_id" : "ric_id",
+          "managed_element_ids" : [ "managed_element_ids", "managed_element_ids" ],
+          "state" : "UNAVAILABLE",
+          "policytype_ids" : [ "policytype_ids", "policytype_ids" ]
+        },
         "properties" : {
           "ric_id" : {
             "description" : "identity of the Near-RT RIC",
@@ -1656,6 +1666,9 @@
       },
       "policy_type_id_list" : {
         "description" : "Information about A1 Policy Types",
+        "example" : {
+          "policytype_ids" : [ "policytype_ids", "policytype_ids" ]
+        },
         "properties" : {
           "policytype_ids" : {
             "description" : "A1 Policy Type identities",
@@ -1670,6 +1683,15 @@
       },
       "policy_info" : {
         "description" : "Information for one A1-P Policy",
+        "example" : {
+          "ric_id" : "ric_id",
+          "policy_id" : "policy_id",
+          "transient" : false,
+          "service_id" : "",
+          "policy_data" : "{}",
+          "status_notification_uri" : "status_notification_uri",
+          "policytype_id" : "policytype_id"
+        },
         "properties" : {
           "ric_id" : {
             "description" : "identity of the target Near-RT RIC",
@@ -1713,6 +1735,11 @@
       },
       "error_information" : {
         "description" : "Problem as defined in https://tools.ietf.org/html/rfc7807",
+        "example" : {
+          "detail" : "A1 Policy Type not found",
+          "title" : "Not Found",
+          "status" : 404
+        },
         "properties" : {
           "detail" : {
             "description" : " A human-readable explanation specific to this occurrence of the problem.",
@@ -1735,6 +1762,19 @@
       },
       "ric_info_list" : {
         "description" : "List of Near-RT RIC information",
+        "example" : {
+          "rics" : [ {
+            "ric_id" : "ric_id",
+            "managed_element_ids" : [ "managed_element_ids", "managed_element_ids" ],
+            "state" : "UNAVAILABLE",
+            "policytype_ids" : [ "policytype_ids", "policytype_ids" ]
+          }, {
+            "ric_id" : "ric_id",
+            "managed_element_ids" : [ "managed_element_ids", "managed_element_ids" ],
+            "state" : "UNAVAILABLE",
+            "policytype_ids" : [ "policytype_ids", "policytype_ids" ]
+          } ]
+        },
         "properties" : {
           "rics" : {
             "description" : "List of Near-RT RIC information",
@@ -1747,6 +1787,19 @@
         "type" : "object"
       },
       "service_status_list" : {
+        "example" : {
+          "service_list" : [ {
+            "callback_url" : "callback_url",
+            "service_id" : "service_id",
+            "keep_alive_interval_seconds" : 0,
+            "time_since_last_activity_seconds" : 6
+          }, {
+            "callback_url" : "callback_url",
+            "service_id" : "service_id",
+            "keep_alive_interval_seconds" : 0,
+            "time_since_last_activity_seconds" : 6
+          } ]
+        },
         "properties" : {
           "service_list" : {
             "description" : "List of service information",
@@ -1759,6 +1812,12 @@
         "type" : "object"
       },
       "service_status" : {
+        "example" : {
+          "callback_url" : "callback_url",
+          "service_id" : "service_id",
+          "keep_alive_interval_seconds" : 0,
+          "time_since_last_activity_seconds" : 6
+        },
         "properties" : {
           "callback_url" : {
             "description" : "callback for notifying of RIC synchronization",
@@ -1819,6 +1878,9 @@
       },
       "policy_type_definition" : {
         "description" : "Contains A1 Policy Type schema definition",
+        "example" : {
+          "policy_schema" : "{}"
+        },
         "properties" : {
           "policy_schema" : {
             "description" : "A1 Policy Type json schema. The schema is a json object following http://json-schema.org/draft-07/schema",
@@ -1846,6 +1908,25 @@
       },
       "policy_info_list" : {
         "description" : "List of policy information",
+        "example" : {
+          "policies" : [ {
+            "ric_id" : "ric_id",
+            "policy_id" : "policy_id",
+            "transient" : false,
+            "service_id" : "",
+            "policy_data" : "{}",
+            "status_notification_uri" : "status_notification_uri",
+            "policytype_id" : "policytype_id"
+          }, {
+            "ric_id" : "ric_id",
+            "policy_id" : "policy_id",
+            "transient" : false,
+            "service_id" : "",
+            "policy_data" : "{}",
+            "status_notification_uri" : "status_notification_uri",
+            "policytype_id" : "policytype_id"
+          } ]
+        },
         "properties" : {
           "policies" : {
             "description" : "List of policy information",
@@ -1859,6 +1940,10 @@
       },
       "policy_status_info" : {
         "description" : "Status for one A1-P Policy",
+        "example" : {
+          "last_modified" : "last_modified",
+          "status" : "{}"
+        },
         "properties" : {
           "last_modified" : {
             "description" : "timestamp, last modification time",

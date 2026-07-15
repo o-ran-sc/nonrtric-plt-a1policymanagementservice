@@ -853,7 +853,6 @@
                                     <name>
                                         o-ran-sc/nonrtric-plt-a1policymanagementservice:${project.version}</name>
                                     <build>
-                                        <cleanup>try</cleanup>
                                         <contextDir>${basedir}</contextDir>
                                         <dockerFile>Dockerfile</dockerFile>
                                         <filter>false</filter>
@@ -880,6 +879,9 @@
                             <images>
                                 <image>
                                     <name>o-ran-sc/nonrtric-plt-a1policymanagementservice:${project.version}</name>
+                                </image>
+                                <image>
+                                    <name>o-ran-sc/nonrtric-plt-a1policymanagementservice:latest</name>
                                 </image>
                             </images>
                         </configuration>
