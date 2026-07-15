@@ -4,7 +4,7 @@
 * O-RAN-SC
 * %%
 * Copyright (C) 2019-2023: Nordix Foundation
-* Copyright (C) 2023-2025: OpenInfra Foundation Europe
+* Copyright (C) 2023-2026: OpenInfra Foundation Europe
 * %%
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -862,10 +862,12 @@
                                         </args>
                                         <tags>
                                             <tag>${project.version}</tag>
+                                            <tag>latest</tag>
                                         </tags>
                                     </build>
                                 </image>
                             </images>
+                            <verbose>true</verbose>
                         </configuration>
                     </execution>
                     <execution>
@@ -894,6 +896,7 @@
                                     </build>
                                 </image>
                             </images>
+                            <verbose>true</verbose>
                         </configuration>
                     </execution>
                 </executions>
