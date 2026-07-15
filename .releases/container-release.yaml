@@ -1,10 +1,10 @@
 ---
 distribution_type: container
-container_release_tag: 2.11.0
+container_release_tag: 2.13.0
 container_pull_registry: nexus3.o-ran-sc.org:10004
 container_push_registry: nexus3.o-ran-sc.org:10002
 project: nonrtric
-ref: ec24501bef561e65052a5de28176e4148100c434
+ref: 6c35ea4d6af100997a607eb06643ec322c44848a
 containers:
     - name: nonrtric-plt-a1policymanagementservice
-      version: 2.11.0
+      version: 2.13.0
