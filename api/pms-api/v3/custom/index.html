@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>ONAP CCSDK - A1 Policy Management API</title>
+  <title>OSC - A1 Policy Management API</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="UTF-8" />
@@ -1269,7 +1269,7 @@ ul.nav-tabs {
       <div id="content">
         <div id="project">
           <div class="pull-left">
-            <h1>ONAP CCSDK - A1 Policy Management API</h1>
+            <h1>OSC - A1 Policy Management API</h1>
           </div>
           <div class="clearfix"></div>
         </div>
@@ -1279,7 +1279,7 @@ ul.nav-tabs {
               <div class="app-desc">Version: 1.0.0</div>
             <hr>
             <div id="app-description" class="app-desc">
-                <h2>General</h2><p>The ONAP CCSDK A1 Policy Management Service provides a REST API for managing A1 policies. <br/>This document describes the latest API set  to perform tasks for: </p><ul><li>A1 Policy creation, modification and deletion.</li><li>Monitoring and maintaining consistency of the SMO view of A1 Policies and the Near-RT RICs</li><li>Maintaining a view of each Near-RT RIC's supported A1 Policy Types</li><li>Supervision of registered services (rApps). When a registered service is unavailable, its policies are removed.</li></ul><h2>APIs provided or defined by the service</h2> <p>Note: parts of this API are strongly based on extracts of the O-RAN Alliance R1 Interface specification for A1 Policy Management, and those parts should be considered '© O-RAN ALLIANCE - All rights reserved.'</p> <h3>A1 Policy Management</h3> <p>This is the latest API for managing A1 Policies. This API is partially compliant with O-RAN Alliance R1 Interface specifications for A1 Policy Management:</p><ul><li>A1 Policy retrieval, creation, modification and deletion.</li><li>Retrieval of supported A1 Policy Types for a Near-RT RIC</li><li>Retrieval of status for existing A1 policies</li></ul><h3>Management of configuration</h3><p>API for updating and retrieval of the component configuration. Note that there other ways to maintain the configuration.</p><h3>Service Callbacks</h3><p>These are endpoints that are invoked by this service. The callbacks are registered in this service at service registration.</p><h3>NearRT-RIC Repository  (Older version)</h3> <p>This is an API that provides support for looking up a NearRT-RIC. Each A1 policy is targeted towards one Near-RT RIC.</p><h3>Health Check</h3><p>API used for supervision of the A1 Policy Management Service.</p><h3>Service Registry and Supervision</h3> <p>API used for registering services/clients/rApps. Each A1 Policy can be tagged with an owner. If the owner service is registered, then the service can be optionally monitored by a heart-beat supervision mechanism, and if the registered service becomes unavailable, then it is removed and all its A1 Policies are  deleted. Note that services do not need to be registered to create A1 Policies, but unregistered    services are not supervised. This is a feature that is optional to use.</p>
+                <h2>General</h2><p>The ORAN SC A1 Policy Management Service provides a REST API for managing A1 policies. <br/>This document describes the latest API set  to perform tasks for: </p><ul><li>A1 Policy creation, modification and deletion.</li><li>Monitoring and maintaining consistency of the SMO view of A1 Policies and the Near-RT RICs</li><li>Maintaining a view of each Near-RT RIC's supported A1 Policy Types</li><li>Supervision of registered services (rApps). When a registered service is unavailable, its policies are removed.</li></ul><h2>APIs provided or defined by the service</h2> <p>Note: parts of this API are strongly based on extracts of the O-RAN Alliance R1 Interface specification for A1 Policy Management, and those parts should be considered 'Copyright (C) O-RAN ALLIANCE - All rights reserved.'</p> <h3>A1 Policy Management</h3> <p>This is the latest API for managing A1 Policies. This API is partially compliant with O-RAN Alliance R1 Interface specifications for A1 Policy Management:</p><ul><li>A1 Policy retrieval, creation, modification and deletion.</li><li>Retrieval of supported A1 Policy Types for a Near-RT RIC</li><li>Retrieval of status for existing A1 policies</li></ul><h3>Management of configuration</h3><p>API for updating and retrieval of the component configuration. Note that there other ways to maintain the configuration.</p><h3>Service Callbacks</h3><p>These are endpoints that are invoked by this service. The callbacks are registered in this service at service registration.</p><h3>NearRT-RIC Repository  (Older version)</h3> <p>This is an API that provides support for looking up a NearRT-RIC. Each A1 policy is targeted towards one Near-RT RIC.</p><h3>Health Check</h3><p>API used for supervision of the A1 Policy Management Service.</p><h3>Service Registry and Supervision</h3> <p>API used for registering services/clients/rApps. Each A1 Policy can be tagged with an owner. If the owner service is registered, then the service can be optionally monitored by a heart-beat supervision mechanism, and if the registered service becomes unavailable, then it is removed and all its A1 Policies are deleted. Note that services do not need to be registered to create A1 Policies, but unregistered   services are not supervised. This is a feature that is optional to use.</p>
 
             </div>
           </div>
@@ -1423,10 +1423,10 @@ PolicyObjectInformation *policyObjectInformation = ; //
                             </div>
 
                             <div class="tab-pane" id="examples-A1PolicyManagement-createPolicy-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OnapCcsdkA1PolicyManagementApi = require('onap_ccsdk_a1_policy_management_api');
+                              <pre class="prettyprint"><code class="language-js">var OscA1PolicyManagementApi = require('osc_a1_policy_management_api');
 
 // Create an instance of the API class
-var api = new OnapCcsdkA1PolicyManagementApi.A1PolicyManagementApi()
+var api = new OscA1PolicyManagementApi.A1PolicyManagementApi()
 var policyObjectInformation = ; // {PolicyObjectInformation} 
 
 var callback = function(error, data, response) {
@@ -2925,10 +2925,10 @@ String *accept = application/json; // Specifies the content type that the client
                             </div>
 
                             <div class="tab-pane" id="examples-A1PolicyManagement-deletePolicy-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OnapCcsdkA1PolicyManagementApi = require('onap_ccsdk_a1_policy_management_api');
+                              <pre class="prettyprint"><code class="language-js">var OscA1PolicyManagementApi = require('osc_a1_policy_management_api');
 
 // Create an instance of the API class
-var api = new OnapCcsdkA1PolicyManagementApi.A1PolicyManagementApi()
+var api = new OscA1PolicyManagementApi.A1PolicyManagementApi()
 var policyId = policyId_example; // {String} 
 var opts = {
   'accept': application/json // {String} Specifies the content type that the client expects to receive in response to the request. Only application/json is allowed.
@@ -4156,10 +4156,10 @@ String *accept = application/json; // Specifies the content type that the client
                             </div>
 
                             <div class="tab-pane" id="examples-A1PolicyManagement-getPolicy-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OnapCcsdkA1PolicyManagementApi = require('onap_ccsdk_a1_policy_management_api');
+                              <pre class="prettyprint"><code class="language-js">var OscA1PolicyManagementApi = require('osc_a1_policy_management_api');
 
 // Create an instance of the API class
-var api = new OnapCcsdkA1PolicyManagementApi.A1PolicyManagementApi()
+var api = new OscA1PolicyManagementApi.A1PolicyManagementApi()
 var policyId = policyId_example; // {String} 
 var opts = {
   'accept': application/json // {String} Specifies the content type that the client expects to receive in response to the request. Only application/json is allowed.
@@ -5267,10 +5267,10 @@ String *accept = application/json; // Specifies the content type that the client
                             </div>
 
                             <div class="tab-pane" id="examples-A1PolicyManagement-getPolicyIds-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OnapCcsdkA1PolicyManagementApi = require('onap_ccsdk_a1_policy_management_api');
+                              <pre class="prettyprint"><code class="language-js">var OscA1PolicyManagementApi = require('osc_a1_policy_management_api');
 
 // Create an instance of the API class
-var api = new OnapCcsdkA1PolicyManagementApi.A1PolicyManagementApi()
+var api = new OscA1PolicyManagementApi.A1PolicyManagementApi()
 var opts = {
   'policyTypeId': policyTypeId_example, // {String} Select policies with a given A1 Policy Type ID.
   'nearRtRicId': nearRtRicId_example, // {String} Select policies for a given Near-RT RIC identity.
@@ -6438,10 +6438,10 @@ String *accept = application/json; // Specifies the content type that the client
                             </div>
 
                             <div class="tab-pane" id="examples-A1PolicyManagement-getPolicyStatus-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OnapCcsdkA1PolicyManagementApi = require('onap_ccsdk_a1_policy_management_api');
+                              <pre class="prettyprint"><code class="language-js">var OscA1PolicyManagementApi = require('osc_a1_policy_management_api');
 
 // Create an instance of the API class
-var api = new OnapCcsdkA1PolicyManagementApi.A1PolicyManagementApi()
+var api = new OscA1PolicyManagementApi.A1PolicyManagementApi()
 var policyId = policyId_example; // {String} 
 var opts = {
   'accept': application/json // {String} Specifies the content type that the client expects to receive in response to the request. Only application/json is allowed.
@@ -7528,10 +7528,10 @@ String *accept = application/json; // Specifies the content type that the client
                             </div>
 
                             <div class="tab-pane" id="examples-A1PolicyManagement-getPolicyTypeDefinition-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OnapCcsdkA1PolicyManagementApi = require('onap_ccsdk_a1_policy_management_api');
+                              <pre class="prettyprint"><code class="language-js">var OscA1PolicyManagementApi = require('osc_a1_policy_management_api');
 
 // Create an instance of the API class
-var api = new OnapCcsdkA1PolicyManagementApi.A1PolicyManagementApi()
+var api = new OscA1PolicyManagementApi.A1PolicyManagementApi()
 var policyTypeId = policyTypeId_example; // {String} 
 var opts = {
   'accept': application/json // {String} Specifies the content type that the client expects to receive in response to the request. Only application/json is allowed.
@@ -8637,10 +8637,10 @@ String *accept = application/json; // Specifies the content type that the client
                             </div>
 
                             <div class="tab-pane" id="examples-A1PolicyManagement-getPolicyTypes-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OnapCcsdkA1PolicyManagementApi = require('onap_ccsdk_a1_policy_management_api');
+                              <pre class="prettyprint"><code class="language-js">var OscA1PolicyManagementApi = require('osc_a1_policy_management_api');
 
 // Create an instance of the API class
-var api = new OnapCcsdkA1PolicyManagementApi.A1PolicyManagementApi()
+var api = new OscA1PolicyManagementApi.A1PolicyManagementApi()
 var opts = {
   'nearRtRicId': nearRtRicId_example, // {String} Select types for the given Near-RT RIC identity.
   'typeName': typeName_example, // {String} Select types compatible with the given type name (type identity has the format 'typename_version')
@@ -9795,10 +9795,10 @@ Object *body = Object; //
                             </div>
 
                             <div class="tab-pane" id="examples-A1PolicyManagement-updatePolicy-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OnapCcsdkA1PolicyManagementApi = require('onap_ccsdk_a1_policy_management_api');
+                              <pre class="prettyprint"><code class="language-js">var OscA1PolicyManagementApi = require('osc_a1_policy_management_api');
 
 // Create an instance of the API class
-var api = new OnapCcsdkA1PolicyManagementApi.A1PolicyManagementApi()
+var api = new OscA1PolicyManagementApi.A1PolicyManagementApi()
 var policyId = policyId_example; // {String} 
 var body = Object; // {Object} 
 
@@ -11091,8 +11091,8 @@ $(document).ready(function() {
           <div id="footer">
             <div id="api-_footer">
               <p>Suggestions, contact, support and error reporting;
-                  <div class="app-desc">Information URL: <a href="https://www.onap.org/">https://www.onap.org/</a></div>
-                  <div class="app-desc">Contact Info: <a href="discuss-list@onap.com">discuss-list@onap.com</a></div>
+                  <div class="app-desc">Information URL: <a href="https://o-ran-sc.org//">https://o-ran-sc.org//</a></div>
+                  <div class="app-desc">Contact Info: <a href="discuss@lists.o-ran-sc.org">discuss@lists.o-ran-sc.org</a></div>
               </p>
                 <div class="license-info">Copyright (C) 2024 - 2025 OpenInfra Foundation Europe. Licensed under the Apache 2 License.</div>
                 <div class="license-url">http://www.apache.org/licenses/LICENSE-2.0</div>
