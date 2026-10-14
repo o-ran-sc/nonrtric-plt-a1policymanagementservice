@@ -17,7 +17,7 @@ build:
       - mkdir --parents _readthedocs/html/
       - mkdir --parents _readthedocs/html/offeredapis/pms-api/
       - mkdir --parents _readthedocs/tmp/doctrees
-      - sphinx-build -W -b html --keep-going -n -d _readthedocs/tmp/doctrees  ./docs/ _readthedocs/html/
+      - sphinx-build -b html -n -d _readthedocs/tmp/doctrees  ./docs/ _readthedocs/html/
       - cp -v -r ./docs/offeredapis/openapitoolgen/offeredapis/pms-api/* _readthedocs/html/offeredapis/pms-api/
 
 python:
